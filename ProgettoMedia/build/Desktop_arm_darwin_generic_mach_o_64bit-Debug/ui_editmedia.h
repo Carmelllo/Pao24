@@ -419,6 +419,7 @@ public:
         sizePolicy2.setHeightForWidth(description->sizePolicy().hasHeightForWidth());
         description->setSizePolicy(sizePolicy2);
         description->setMaximumSize(QSize(16777215, 100));
+        description->setLineWrapMode(QTextEdit::LineWrapMode::FixedPixelWidth);
 
         horizontalLayout->addWidget(description);
 
@@ -476,7 +477,7 @@ public:
         retranslateUi(EditMedia);
 
         infoStackedWidget->setCurrentIndex(0);
-        imageStackedWidget->setCurrentIndex(0);
+        imageStackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(EditMedia);
@@ -509,6 +510,7 @@ public:
         author->setPlaceholderText(QCoreApplication::translate("EditMedia", "Type author's name", nullptr));
         label_3->setText(QCoreApplication::translate("EditMedia", "Year", nullptr));
         label_14->setText(QCoreApplication::translate("EditMedia", "Description", nullptr));
+        description->setPlaceholderText(QCoreApplication::translate("EditMedia", "A brief description...", nullptr));
         uploadBtn->setText(QCoreApplication::translate("EditMedia", "Upload Image", nullptr));
         imageLabel->setText(QString());
         reuploadBtn->setText(QCoreApplication::translate("EditMedia", "Upload Image", nullptr));

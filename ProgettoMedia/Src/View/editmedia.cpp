@@ -2,6 +2,7 @@
 #include "ui_editmedia.h"
 #include <QDialogButtonBox>
 #include <QFileDialog>
+#include <QMessageBox>
 #include "Src/Container/container.h"
 #include "Src/Media/bookmedia.h"
 #include "Src/Media/articlemedia.h"
@@ -44,13 +45,10 @@ void EditMedia::uploadImage()
 
 void EditMedia::onApplyButtonClicked() {
 
-    ui->imageStackedWidget->setCurrentIndex(0);
-
     AbstractMedia * media = nullptr;
     QString name = ui->name->text();
     QString author = ui->author->text();
     QString description = ui->description->toPlainText();
-    qDebug() << description;
     unsigned int year = ui->year->value();
     QPixmap picture = ui->imageLabel->pixmap();
 
@@ -95,5 +93,12 @@ void EditMedia::onApplyButtonClicked() {
     }
 
     emit onApply(media);
+
+    if (ui->imageLabel) {
+        ui->imageLabel->clear();
+    }
+    ui->imageStackedWidget->setCurrentIndex(0);
+
     close();
 }
+

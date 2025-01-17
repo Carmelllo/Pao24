@@ -10,9 +10,12 @@
 #define UI_LISTWIDGETELEMENT_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -22,11 +25,14 @@ class Ui_ListWidgetElement
 {
 public:
     QHBoxLayout *horizontalLayout_2;
-    QLabel *label;
+    QLabel *image;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
-    QLabel *label_2;
-    QLabel *label_3;
+    QLabel *nameLabel;
+    QHBoxLayout *horizontalLayout_4;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *pushButton;
+    QLabel *descriptionLabel;
 
     void setupUi(QWidget *ListWidgetElement)
     {
@@ -42,38 +48,58 @@ public:
         ListWidgetElement->setMaximumSize(QSize(356, 154));
         horizontalLayout_2 = new QHBoxLayout(ListWidgetElement);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        label = new QLabel(ListWidgetElement);
-        label->setObjectName("label");
-        sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy);
-        label->setMinimumSize(QSize(100, 100));
-        label->setMaximumSize(QSize(100, 100));
-        label->setStyleSheet(QString::fromUtf8("border: 2px solid grey;"));
-        label->setFrameShape(QFrame::Shape::Box);
+        image = new QLabel(ListWidgetElement);
+        image->setObjectName("image");
+        sizePolicy.setHeightForWidth(image->sizePolicy().hasHeightForWidth());
+        image->setSizePolicy(sizePolicy);
+        image->setMinimumSize(QSize(100, 100));
+        image->setMaximumSize(QSize(100, 100));
+        image->setStyleSheet(QString::fromUtf8("border: 2px solid grey;"));
+        image->setFrameShape(QFrame::Shape::Box);
 
-        horizontalLayout_2->addWidget(label);
+        horizontalLayout_2->addWidget(image);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName("verticalLayout_2");
-        label_2 = new QLabel(ListWidgetElement);
-        label_2->setObjectName("label_2");
-        sizePolicy.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
-        label_2->setSizePolicy(sizePolicy);
+        nameLabel = new QLabel(ListWidgetElement);
+        nameLabel->setObjectName("nameLabel");
+        sizePolicy.setHeightForWidth(nameLabel->sizePolicy().hasHeightForWidth());
+        nameLabel->setSizePolicy(sizePolicy);
 
-        verticalLayout_2->addWidget(label_2);
+        verticalLayout_2->addWidget(nameLabel);
 
-        label_3 = new QLabel(ListWidgetElement);
-        label_3->setObjectName("label_3");
-        sizePolicy.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
-        label_3->setSizePolicy(sizePolicy);
-        label_3->setMinimumSize(QSize(0, 100));
-        label_3->setMaximumSize(QSize(200, 16777215));
-        label_3->setAlignment(Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop);
-        label_3->setWordWrap(true);
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName("horizontalLayout_4");
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
-        verticalLayout_2->addWidget(label_3);
+        horizontalLayout_4->addItem(horizontalSpacer);
+
+        pushButton = new QPushButton(ListWidgetElement);
+        pushButton->setObjectName("pushButton");
+        sizePolicy.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
+        pushButton->setSizePolicy(sizePolicy);
+        pushButton->setMaximumSize(QSize(30, 16777215));
+        QIcon icon(QIcon::fromTheme(QIcon::ThemeIcon::DialogInformation));
+        pushButton->setIcon(icon);
+        pushButton->setIconSize(QSize(20, 20));
+
+        horizontalLayout_4->addWidget(pushButton);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_4);
+
+        descriptionLabel = new QLabel(ListWidgetElement);
+        descriptionLabel->setObjectName("descriptionLabel");
+        sizePolicy.setHeightForWidth(descriptionLabel->sizePolicy().hasHeightForWidth());
+        descriptionLabel->setSizePolicy(sizePolicy);
+        descriptionLabel->setMinimumSize(QSize(220, 10));
+        descriptionLabel->setMaximumSize(QSize(220, 16777215));
+        descriptionLabel->setAlignment(Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop);
+        descriptionLabel->setWordWrap(true);
+
+        verticalLayout_2->addWidget(descriptionLabel);
 
 
         horizontalLayout->addLayout(verticalLayout_2);
@@ -90,12 +116,10 @@ public:
     void retranslateUi(QWidget *ListWidgetElement)
     {
         ListWidgetElement->setWindowTitle(QCoreApplication::translate("ListWidgetElement", "Form", nullptr));
-        label->setText(QString());
-        label_2->setText(QCoreApplication::translate("ListWidgetElement", "Nome", nullptr));
-        label_3->setText(QCoreApplication::translate("ListWidgetElement", "first line An a few word im gonna say for the record\n"
-"second line\n"
-"third line\n"
-"", nullptr));
+        image->setText(QString());
+        nameLabel->setText(QCoreApplication::translate("ListWidgetElement", "Nome", nullptr));
+        pushButton->setText(QString());
+        descriptionLabel->setText(QString());
     } // retranslateUi
 
 };

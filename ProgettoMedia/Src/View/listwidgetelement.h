@@ -14,8 +14,12 @@ class ListWidgetElement : public QWidget
 public:
     explicit ListWidgetElement(QWidget *parent = nullptr);
     ~ListWidgetElement();
-    QString getName();
+    QString getName() const;
     void onMediaAdded(const QPixmap&,const std::string&, const std::string &);
+public slots:
+    void onInspect();
+signals:
+    void inspectClicked(std::string&);
 private:
     Ui::ListWidgetElement *ui;
 };

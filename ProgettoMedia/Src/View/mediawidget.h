@@ -2,9 +2,7 @@
 #define MEDIAWIDGET_H
 
 #include <QWidget>
-#include "Src/Media/bookmedia.h"
-#include "Src/Media/articlemedia.h"
-#include "Src/Media/moviemedia.h"
+#include "Src/Visitor/concretevisitor.h"
 
 namespace Ui {
 class MediaWidget;
@@ -17,9 +15,8 @@ class MediaWidget : public QWidget
 public:
     explicit MediaWidget(QWidget *parent = nullptr);
     ~MediaWidget();
-
-
-
+    void show(ConcreteVisitor* visitor);
+    void clearUI(QLayout* layout);
 private:
     Ui::MediaWidget *ui;
 };

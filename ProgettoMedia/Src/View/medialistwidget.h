@@ -24,8 +24,12 @@ public:
     void showWidgets(Container * , ConcreteVisitor *);
 signals:
     void addClick();
+    void sendWidgetName(const std::string&);
+
 private slots:
     void onAddButtonClicked();
+    void receiveWidgetName(const std::string&);
+
 private:
     Ui::MediaListWidget *ui;
 };

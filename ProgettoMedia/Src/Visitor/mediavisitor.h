@@ -2,8 +2,8 @@
 #define MEDIAVISITOR_H
 
 
-class ArticleMedia;
 class BookMedia;
+class ArticleMedia;
 class MovieMedia;
 
 

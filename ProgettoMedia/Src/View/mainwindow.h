@@ -26,11 +26,12 @@ public:
     ~MainWindow();
     void search(std::string&);
     void update();
+    void showError(const QString &);
 
 public slots:
-    void showEdit();
+    void showEditOnAdd();
     void onMediaCreated(AbstractMedia*);
-
+    void showMediaWidget(const std::string&);
 private:
     QSplitter *HSplitter;
     QSplitter *VSplitter;

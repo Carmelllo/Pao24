@@ -6,7 +6,7 @@ ListWidgetElement::ListWidgetElement(QWidget *parent)
     , ui(new Ui::ListWidgetElement)
 {
     ui->setupUi(this);
-
+    connect(ui->pushButton, &QPushButton::clicked, this, &ListWidgetElement::onInspect);
 }
 
 ListWidgetElement::~ListWidgetElement()
@@ -16,12 +16,18 @@ ListWidgetElement::~ListWidgetElement()
 
 void ListWidgetElement::onMediaAdded(const QPixmap& img, const std::string & name, const std::string & desc){
 
-    ui->label->setPixmap(img);
-    ui->label->setScaledContents(true);
-    ui->label_2->setText(QString::fromStdString(name));
-    ui->label_3->setText(QString::fromStdString(desc));
+    ui->image->setPixmap(img);
+    ui->image->setScaledContents(true);
+    ui->nameLabel->setText(QString::fromStdString(name));
+    ui->descriptionLabel->setText("Description\n " +QString::fromStdString(desc));
 }
 
-QString ListWidgetElement::getName(){
-    return ui->label_2->text();
+QString ListWidgetElement::getName() const{
+    return ui->nameLabel->text();
 }
+
+void ListWidgetElement::onInspect(){
+        std::string name = ui->nameLabel->text().toStdString();
+        emit inspectClicked(name);
+}
+

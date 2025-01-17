@@ -605,6 +605,12 @@
          <height>100</height>
         </size>
        </property>
+       <property name="lineWrapMode">
+        <enum>QTextEdit::LineWrapMode::FixedPixelWidth</enum>
+       </property>
+       <property name="placeholderText">
+        <string>A brief description...</string>
+       </property>
       </widget>
      </item>
     </layout>
@@ -637,7 +643,7 @@
       <enum>QFrame::Shadow::Plain</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page_4">
       <layout class="QVBoxLayout" name="verticalLayout_3">

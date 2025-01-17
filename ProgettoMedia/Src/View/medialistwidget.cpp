@@ -27,7 +27,6 @@ void MediaListWidget::onAddButtonClicked() {
 
 
 void MediaListWidget::addWidget(const QPixmap& img, const std::string &s, const std::string &d){
-
     bool found = false;
     for (auto* it : listElementWidgets) {
         if (it->getName().toStdString() == s) {
@@ -49,6 +48,9 @@ void MediaListWidget::addWidget(const QPixmap& img, const std::string &s, const 
     ui->listWidget->addItem(listItem);
 
     ui->listWidget->setItemWidget(listItem, elementWidget);
+    disconnect(elementWidget, &ListWidgetElement::inspectClicked, this, &MediaListWidget::receiveWidgetName);
+    connect(elementWidget, &ListWidgetElement::inspectClicked ,this , &MediaListWidget::receiveWidgetName);
+
     }
 }
 
@@ -71,5 +73,10 @@ void MediaListWidget::refresh(){
     ui->listWidget->clear();
 
     listElementWidgets.clear();
+}
+
+void MediaListWidget::receiveWidgetName(const std::string& name)
+{
+    emit sendWidgetName(name);
 }
 

@@ -3,6 +3,7 @@
 #include "searchbar.h"
 #include <QVBoxLayout>
 #include <QSplitter>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     editMediaWidget = new EditMedia();
     visitor = new ConcreteVisitor();
 
-    list = new MediaListWidget();
+    list = new MediaListWidget(this);
 
     list->setBaseSize(100,100);
 
@@ -43,8 +44,9 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(VSplitter);
 
     connect(searchbar, &SearchBar::onSearch, this, &MainWindow::search);
-    connect(list, &MediaListWidget::addClick, this, &MainWindow::showEdit);
+    connect(list, &MediaListWidget::addClick, this, &MainWindow::showEditOnAdd);
     connect(editMediaWidget, &EditMedia::onApply, this, &MainWindow::onMediaCreated);
+    connect(list, &MediaListWidget::sendWidgetName, this, &MainWindow::showMediaWidget);
 
     container = new Container();
     searchContainer = new Container();
@@ -56,24 +58,46 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::showEdit() {
-    editMediaWidget->setWindowTitle("Edit Media");
-    editMediaWidget->setWindowModality(Qt::ApplicationModal);
-    editMediaWidget->setFocus();
+void MainWindow::showEditOnAdd() {
+    EditMedia* editMedia = new EditMedia();
 
-    editMediaWidget->show();
+    connect(editMedia, &EditMedia::onApply, this, &MainWindow::onMediaCreated);
+    editMedia->setWindowTitle("Edit Media");
+    editMedia->setWindowModality(Qt::ApplicationModal);
+    editMedia->setFocus();
+
+    editMedia->show();
 }
 
 void MainWindow::onMediaCreated(AbstractMedia* media) {
-    //logic to add sensor to container
+    //logic to add media to container
     for(auto it = container->begin(); it != container->end(); ++it){
         if(media->getName()==(*it)->getName()){
+            showError("Name already taken");
             return;
         }
     }
     container->add(media);
+    list->refresh();//importante per non mostrare duplicati se aggiungo nome uguale e poi nome nuovo
     list->showWidgets(container, visitor);
 }
+
+void MainWindow::showMediaWidget(const std::string& name){
+    ConcreteVisitor* visitor = new ConcreteVisitor();
+    qDebug() << name << " button clicked!";
+    for(auto it = container->begin(); it != container->end(); ++it){
+        qDebug() << "Comparing:" << QString::fromStdString(name) << "with" << (*it)->getName();
+        if(name==(*it)->getName()){
+            qDebug() << name << "Works";
+            (*it)->accept(visitor);
+            mediaWidget->show(visitor);
+            update();
+            delete visitor;
+        }
+
+    }
+}
+
 
 
 void MainWindow::search(std::string& query) {
@@ -91,11 +115,17 @@ void MainWindow::search(std::string& query) {
 }
 
 void MainWindow::update(){
-    if(!mediaWidget->isActiveWindow())
+    if(!mediaWidget->isActiveWindow() && HSplitter->indexOf(mediaWidget) == -1)
         HSplitter->addWidget(mediaWidget);
 
-    HSplitter->replaceWidget(2,mediaWidget);
+}
 
-
+void MainWindow::showError(const QString &message) {
+    QMessageBox::critical(
+        this,                     // Parent widget (use this if inside a window)
+        "Error",                   // Title of the popup window
+        message,                   // The error message
+        QMessageBox::Ok            // Button (Ok button to close the popup)
+        );
 }
 
