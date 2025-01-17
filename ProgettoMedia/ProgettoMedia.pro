@@ -20,6 +20,8 @@ SOURCES += \
     Src/View/medialistwidget.cpp \
     Src/View/mediawidget.cpp \
     Src/View/searchbar.cpp \
+    Src/Visitor/concretevisitor.cpp \
+    Src/Visitor/mediavisitor.cpp \
     main.cpp \
 
 HEADERS += \
@@ -34,6 +36,7 @@ HEADERS += \
     Src/View/medialistwidget.h \
     Src/View/mediawidget.h \
     Src/View/searchbar.h \
+    Src/Visitor/concretevisitor.h \
     Src/Visitor/mediavisitor.h \
 
 

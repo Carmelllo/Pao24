@@ -15,12 +15,14 @@ private:
     std::string name;
     unsigned int year;
     std::string author;
+    std::string description;
     QPixmap image;
 
 public:
     AbstractMedia(
         const std::string & ="",
         const unsigned int & = 2025,
+        const std::string & ="",
         const std::string & ="",
         const QPixmap& = QPixmap(":/Images/default.png"));
 
@@ -30,6 +32,7 @@ public:
     std::string getName() const;
     unsigned int getYear() const;
     std::string getAuthor() const;
+    std::string getDescription() const;
     QPixmap getImage() const;
     //Sets
     void setName(const std::string &);

@@ -3,6 +3,7 @@
 #include "ui_medialistwidget.h"
 #include "listwidgetelement.h"
 #include "Src/Container/container.h"
+#include "Src/Visitor/concretevisitor.h"
 
 
 
@@ -25,7 +26,7 @@ void MediaListWidget::onAddButtonClicked() {
 
 
 
-void MediaListWidget::addWidget(const QPixmap& img, const std::string &s){
+void MediaListWidget::addWidget(const QPixmap& img, const std::string &s, const std::string &d){
 
     bool found = false;
     for (auto* it : listElementWidgets) {
@@ -39,11 +40,11 @@ void MediaListWidget::addWidget(const QPixmap& img, const std::string &s){
 
     listElementWidgets.push_back(elementWidget);
 
-    elementWidget->onMediaAdded(img , s);
+    elementWidget->onMediaAdded(img , s , d);
 
     QListWidgetItem* listItem = new QListWidgetItem();
 
-    listItem->setSizeHint(QSize(356, 180));
+    listItem->setSizeHint(QSize(356, 150));
 
     ui->listWidget->addItem(listItem);
 
@@ -51,10 +52,11 @@ void MediaListWidget::addWidget(const QPixmap& img, const std::string &s){
     }
 }
 
-void MediaListWidget::showWidgets(Container * container){
+void MediaListWidget::showWidgets(Container * container, ConcreteVisitor * visitor){
     for(auto it = container->begin();it!= container->end(); ++it)
     {
-        addWidget((*it)->getImage() , (*it)->getName());
+        (*it)->accept(visitor);
+        addWidget(visitor->getIcon() , (*it)->getName(), (*it)->getDescription());
     }
 }
 

@@ -15,7 +15,7 @@ public:
     explicit ListWidgetElement(QWidget *parent = nullptr);
     ~ListWidgetElement();
     QString getName();
-    void onMediaAdded(const QPixmap&,const std::string&);
+    void onMediaAdded(const QPixmap&,const std::string&, const std::string &);
 private:
     Ui::ListWidgetElement *ui;
 };

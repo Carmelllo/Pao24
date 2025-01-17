@@ -3,6 +3,7 @@
 #include <QWidget>
 #include "listwidgetelement.h"
 #include "Src/Container/container.h"
+#include "Src/Visitor/concretevisitor.h"
 
 namespace Ui {
 class MediaListWidget;
@@ -19,8 +20,8 @@ public:
         QWidget *parent = nullptr);
     ~MediaListWidget();
     void refresh();
-    void addWidget(const QPixmap&, const std::string &);
-    void showWidgets(Container * );
+    void addWidget(const QPixmap&, const std::string &, const std::string &);
+    void showWidgets(Container * , ConcreteVisitor *);
 signals:
     void addClick();
 private slots:

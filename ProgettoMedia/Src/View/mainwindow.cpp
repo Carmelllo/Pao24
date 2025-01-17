@@ -3,7 +3,6 @@
 #include "searchbar.h"
 #include <QVBoxLayout>
 #include <QSplitter>
-#include <QString> // Ensure QString is included
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     SearchBar* searchbar = new SearchBar();
 
     editMediaWidget = new EditMedia();
+    visitor = new ConcreteVisitor();
 
     list = new MediaListWidget();
 
@@ -71,9 +71,8 @@ void MainWindow::onMediaCreated(AbstractMedia* media) {
             return;
         }
     }
-
     container->add(media);
-    list->showWidgets(container);
+    list->showWidgets(container, visitor);
 }
 
 
@@ -83,7 +82,7 @@ void MainWindow::search(std::string& query) {
     container->search(searchContainer, query);
     //searchContainer has the right entries so i can call showWidgets
     if(!searchContainer->empty()){
-        list->showWidgets(searchContainer);
+        list->showWidgets(searchContainer, visitor);
         ui->statusbar->showMessage("Status: Found " + QString::number(searchContainer->size()) + " medias for query: " + QString::fromStdString(query));
     }
     else{

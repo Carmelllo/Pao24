@@ -4,10 +4,11 @@ MovieMedia::MovieMedia(
     const std::string & n,
     const unsigned int & y,
     const std::string & a,
+    const std::string & d,
     const QPixmap& img,
     const double&l,
-    const std::string&d,
-    const std::string&s) : AbstractMedia(n,y,a,img), length(l), director(d), studio(s) {}
+    const std::string&dir,
+    const std::string&s) : AbstractMedia(n,y,a,d,img), length(l), director(dir), studio(s) {}
 
 MovieMedia::~MovieMedia() {}
 

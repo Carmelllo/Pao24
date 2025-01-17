@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/Images">
         <file>default.png</file>
+        <file>Article.png</file>
+        <file>Book.png</file>
+        <file>Movie.png</file>
     </qresource>
 </RCC>

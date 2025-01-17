@@ -4,7 +4,8 @@ AbstractMedia::AbstractMedia(
     const std::string &n,
     const unsigned int &y,
     const std::string &a,
-    const QPixmap& img) : name(n) , year(y) , author(a) , image(img){};
+    const std::string &d,
+    const QPixmap& img) : name(n) , year(y) , author(a) , description(d), image(img){};
 
 
 AbstractMedia::~AbstractMedia(){}
@@ -31,6 +32,10 @@ std::string AbstractMedia::getAuthor() const{
 
 QPixmap AbstractMedia::getImage() const{
     return image;
+}
+
+std::string AbstractMedia::getDescription() const{
+    return description;
 }
 
 

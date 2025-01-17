@@ -22,8 +22,8 @@ class Ui_ListWidgetElement
 {
 public:
     QHBoxLayout *horizontalLayout_2;
-    QHBoxLayout *horizontalLayout;
     QLabel *label;
+    QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_2;
     QLabel *label_3;
@@ -32,28 +32,29 @@ public:
     {
         if (ListWidgetElement->objectName().isEmpty())
             ListWidgetElement->setObjectName("ListWidgetElement");
-        ListWidgetElement->resize(356, 180);
+        ListWidgetElement->resize(356, 130);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(ListWidgetElement->sizePolicy().hasHeightForWidth());
         ListWidgetElement->setSizePolicy(sizePolicy);
-        ListWidgetElement->setMinimumSize(QSize(356, 180));
-        ListWidgetElement->setMaximumSize(QSize(356, 180));
+        ListWidgetElement->setMinimumSize(QSize(356, 130));
+        ListWidgetElement->setMaximumSize(QSize(356, 154));
         horizontalLayout_2 = new QHBoxLayout(ListWidgetElement);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName("horizontalLayout");
         label = new QLabel(ListWidgetElement);
         label->setObjectName("label");
         sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
         label->setSizePolicy(sizePolicy);
-        label->setMinimumSize(QSize(100, 0));
-        label->setMaximumSize(QSize(100, 300));
+        label->setMinimumSize(QSize(100, 100));
+        label->setMaximumSize(QSize(100, 100));
+        label->setStyleSheet(QString::fromUtf8("border: 2px solid grey;"));
         label->setFrameShape(QFrame::Shape::Box);
 
-        horizontalLayout->addWidget(label);
+        horizontalLayout_2->addWidget(label);
 
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName("verticalLayout_2");
         label_2 = new QLabel(ListWidgetElement);

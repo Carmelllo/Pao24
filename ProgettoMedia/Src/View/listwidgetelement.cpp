@@ -14,11 +14,12 @@ ListWidgetElement::~ListWidgetElement()
     delete ui;
 }
 
-void ListWidgetElement::onMediaAdded(const QPixmap& img, const std::string & lab){
+void ListWidgetElement::onMediaAdded(const QPixmap& img, const std::string & name, const std::string & desc){
 
     ui->label->setPixmap(img);
     ui->label->setScaledContents(true);
-    ui->label_2->setText(QString::fromStdString(lab));
+    ui->label_2->setText(QString::fromStdString(name));
+    ui->label_3->setText(QString::fromStdString(desc));
 }
 
 QString ListWidgetElement::getName(){
