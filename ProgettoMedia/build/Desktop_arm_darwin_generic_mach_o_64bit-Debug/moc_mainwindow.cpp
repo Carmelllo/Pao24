@@ -48,7 +48,9 @@ static constexpr auto qt_meta_stringdata_ZN10MainWindowE = QtMocHelpers::stringD
     "onMediaCreated",
     "AbstractMedia*",
     "onMediaDeleted",
-    "showMediaWidget"
+    "showMediaWidget",
+    "saveMedia",
+    "openMedia"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -60,7 +62,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -68,11 +70,13 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   44,    2, 0x0a,    1 /* Public */,
-       3,    1,   45,    2, 0x0a,    2 /* Public */,
-       6,    1,   48,    2, 0x0a,    4 /* Public */,
-       8,    1,   51,    2, 0x0a,    6 /* Public */,
-       9,    1,   54,    2, 0x0a,    8 /* Public */,
+       1,    0,   56,    2, 0x0a,    1 /* Public */,
+       3,    1,   57,    2, 0x0a,    2 /* Public */,
+       6,    1,   60,    2, 0x0a,    4 /* Public */,
+       8,    1,   63,    2, 0x0a,    6 /* Public */,
+       9,    1,   66,    2, 0x0a,    8 /* Public */,
+      10,    0,   69,    2, 0x0a,   10 /* Public */,
+      11,    0,   70,    2, 0x0a,   11 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -80,6 +84,8 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
     QMetaType::Void, 0x80000000 | 7,    2,
     QMetaType::Void, 0x80000000 | 4,    2,
     QMetaType::Void, 0x80000000 | 4,    2,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -106,7 +112,11 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<const std::string &, std::false_type>,
         // method 'showMediaWidget'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const std::string &, std::false_type>
+        QtPrivate::TypeAndForceComplete<const std::string &, std::false_type>,
+        // method 'saveMedia'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'openMedia'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -121,6 +131,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->onMediaCreated((*reinterpret_cast< std::add_pointer_t<AbstractMedia*>>(_a[1]))); break;
         case 3: _t->onMediaDeleted((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
         case 4: _t->showMediaWidget((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
+        case 5: _t->saveMedia(); break;
+        case 6: _t->openMedia(); break;
         default: ;
         }
     }
@@ -145,14 +157,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 7;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 7;
     }
     return _id;
 }

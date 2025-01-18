@@ -50,7 +50,7 @@ void ConcreteVisitor::setAttributes(const ArticleMedia * media){
     attributes.img = media->getImage();
     attributes.details["Issue"] = std::to_string(media->getIssue());
     attributes.details["Volume"] = std::to_string(media->getVolume());
-    attributes.details["Journa"] = media->getJournal();
+    attributes.details["Journal"] = media->getJournal();
 }
 void ConcreteVisitor::setAttributes(const BookMedia * media){
     attributes.name = media->getName() ;

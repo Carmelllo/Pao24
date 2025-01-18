@@ -53,6 +53,7 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../../Src/Container/container.cpp \
+		../../Src/Json/jsonstorage.cpp \
 		../../Src/Media/abstractmedia.cpp \
 		../../Src/Media/articlemedia.cpp \
 		../../Src/Media/bookmedia.cpp \
@@ -64,6 +65,7 @@ SOURCES       = ../../Src/Container/container.cpp \
 		../../Src/View/mediawidget.cpp \
 		../../Src/View/searchbar.cpp \
 		../../Src/Visitor/concretevisitor.cpp \
+		../../Src/Visitor/jsonvisitor.cpp \
 		../../Src/Visitor/mediavisitor.cpp \
 		../../main.cpp qrc_Resources.cpp \
 		moc_editmedia.cpp \
@@ -73,6 +75,7 @@ SOURCES       = ../../Src/Container/container.cpp \
 		moc_mediawidget.cpp \
 		moc_searchbar.cpp
 OBJECTS       = container.o \
+		jsonstorage.o \
 		abstractmedia.o \
 		articlemedia.o \
 		bookmedia.o \
@@ -84,6 +87,7 @@ OBJECTS       = container.o \
 		mediawidget.o \
 		searchbar.o \
 		concretevisitor.o \
+		jsonvisitor.o \
 		mediavisitor.o \
 		main.o \
 		qrc_Resources.o \
@@ -340,6 +344,7 @@ DIST          = ProgettoMedia.app/Contents/Info.plist \
 		/Qt/6.8.1/macos/mkspecs/features/yacc.prf \
 		/Qt/6.8.1/macos/mkspecs/features/lex.prf \
 		../../../../ProgettoMedia.pro ../../Src/Container/container.h \
+		../../Src/Json/jsonstorage.h \
 		../../Src/Media/abstractmedia.h \
 		../../Src/Media/articlemedia.h \
 		../../Src/Media/bookmedia.h \
@@ -351,7 +356,9 @@ DIST          = ProgettoMedia.app/Contents/Info.plist \
 		../../Src/View/mediawidget.h \
 		../../Src/View/searchbar.h \
 		../../Src/Visitor/concretevisitor.h \
+		../../Src/Visitor/jsonvisitor.h \
 		../../Src/Visitor/mediavisitor.h ../../Src/Container/container.cpp \
+		../../Src/Json/jsonstorage.cpp \
 		../../Src/Media/abstractmedia.cpp \
 		../../Src/Media/articlemedia.cpp \
 		../../Src/Media/bookmedia.cpp \
@@ -363,6 +370,7 @@ DIST          = ProgettoMedia.app/Contents/Info.plist \
 		../../Src/View/mediawidget.cpp \
 		../../Src/View/searchbar.cpp \
 		../../Src/Visitor/concretevisitor.cpp \
+		../../Src/Visitor/jsonvisitor.cpp \
 		../../Src/Visitor/mediavisitor.cpp \
 		../../main.cpp
 QMAKE_TARGET  = ProgettoMedia
@@ -913,8 +921,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Src/Container/container.h ../../Src/Media/abstractmedia.h ../../Src/Media/articlemedia.h ../../Src/Media/bookmedia.h ../../Src/Media/moviemedia.h ../../Src/View/editmedia.h ../../Src/View/listwidgetelement.h ../../Src/View/mainwindow.h ../../Src/View/medialistwidget.h ../../Src/View/mediawidget.h ../../Src/View/searchbar.h ../../Src/Visitor/concretevisitor.h ../../Src/Visitor/mediavisitor.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Src/Container/container.cpp ../../Src/Media/abstractmedia.cpp ../../Src/Media/articlemedia.cpp ../../Src/Media/bookmedia.cpp ../../Src/Media/moviemedia.cpp ../../Src/View/editmedia.cpp ../../Src/View/listwidgetelement.cpp ../../Src/View/mainwindow.cpp ../../Src/View/medialistwidget.cpp ../../Src/View/mediawidget.cpp ../../Src/View/searchbar.cpp ../../Src/Visitor/concretevisitor.cpp ../../Src/Visitor/mediavisitor.cpp ../../main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Src/Container/container.h ../../Src/Json/jsonstorage.h ../../Src/Media/abstractmedia.h ../../Src/Media/articlemedia.h ../../Src/Media/bookmedia.h ../../Src/Media/moviemedia.h ../../Src/View/editmedia.h ../../Src/View/listwidgetelement.h ../../Src/View/mainwindow.h ../../Src/View/medialistwidget.h ../../Src/View/mediawidget.h ../../Src/View/searchbar.h ../../Src/Visitor/concretevisitor.h ../../Src/Visitor/jsonvisitor.h ../../Src/Visitor/mediavisitor.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Src/Container/container.cpp ../../Src/Json/jsonstorage.cpp ../../Src/Media/abstractmedia.cpp ../../Src/Media/articlemedia.cpp ../../Src/Media/bookmedia.cpp ../../Src/Media/moviemedia.cpp ../../Src/View/editmedia.cpp ../../Src/View/listwidgetelement.cpp ../../Src/View/mainwindow.cpp ../../Src/View/medialistwidget.cpp ../../Src/View/mediawidget.cpp ../../Src/View/searchbar.cpp ../../Src/Visitor/concretevisitor.cpp ../../Src/Visitor/jsonvisitor.cpp ../../Src/Visitor/mediavisitor.cpp ../../main.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Src/View/editmedia.ui ../../Src/View/listwidgetelement.ui ../../Src/View/mainwindow.ui ../../Src/View/medialistwidget.ui ../../Src/View/mediawidget.ui ../../Src/View/searchbar.ui $(DISTDIR)/
 
 
@@ -980,14 +988,18 @@ moc_mainwindow.cpp: ../../Src/View/mainwindow.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QSplitter \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsplitter.h \
 		../../Src/Container/container.h \
-		../../Src/View/medialistwidget.h \
+		../../Src/View/editmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../Src/View/listwidgetelement.h \
-		../../Src/Visitor/concretevisitor.h \
+		../../Src/Media/abstractmedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../Src/Visitor/mediavisitor.h \
+		../../Src/Visitor/concretevisitor.h \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Src/View/medialistwidget.h \
+		../../Src/View/listwidgetelement.h \
 		../../Src/View/mediawidget.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -1051,7 +1063,6 @@ moc_mainwindow.cpp: ../../Src/View/mainwindow.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemdelegate.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemeditorfactory.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qkeysequenceedit.h \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayout.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayoutitem.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
@@ -1314,6 +1325,16 @@ container.o: ../../Src/Container/container.cpp ../../Src/Container/container.h \
 		../../Src/Visitor/mediavisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o container.o ../../Src/Container/container.cpp
 
+jsonstorage.o: ../../Src/Json/jsonstorage.cpp ../../Src/Json/jsonstorage.h \
+		../../Src/Media/abstractmedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../Src/Visitor/mediavisitor.h \
+		../../Src/Visitor/jsonvisitor.h \
+		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QJsonObject \
+		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qjsonobject.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o jsonstorage.o ../../Src/Json/jsonstorage.cpp
+
 abstractmedia.o: ../../Src/Media/abstractmedia.cpp ../../Src/Media/abstractmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
@@ -1376,14 +1397,18 @@ mainwindow.o: ../../Src/View/mainwindow.cpp ../../Src/View/mainwindow.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QSplitter \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsplitter.h \
 		../../Src/Container/container.h \
-		../../Src/View/medialistwidget.h \
+		../../Src/View/editmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../Src/View/listwidgetelement.h \
-		../../Src/Visitor/concretevisitor.h \
+		../../Src/Media/abstractmedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../Src/Visitor/mediavisitor.h \
+		../../Src/Visitor/concretevisitor.h \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Src/View/medialistwidget.h \
+		../../Src/View/listwidgetelement.h \
 		../../Src/View/mediawidget.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -1447,7 +1472,6 @@ mainwindow.o: ../../Src/View/mainwindow.cpp ../../Src/View/mainwindow.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemdelegate.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemeditorfactory.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qkeysequenceedit.h \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayout.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayoutitem.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
@@ -1509,9 +1533,6 @@ mainwindow.o: ../../Src/View/mainwindow.cpp ../../Src/View/mainwindow.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qstring.h \
 		ui_mainwindow.h \
 		../../Src/View/searchbar.h \
-		../../Src/View/editmedia.h \
-		../../Src/Media/abstractmedia.h \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QMessageBox
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../Src/View/mainwindow.cpp
@@ -1681,6 +1702,18 @@ concretevisitor.o: ../../Src/Visitor/concretevisitor.cpp ../../Src/Visitor/concr
 		../../Src/Media/moviemedia.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o concretevisitor.o ../../Src/Visitor/concretevisitor.cpp
 
+jsonvisitor.o: ../../Src/Visitor/jsonvisitor.cpp ../../Src/Visitor/jsonvisitor.h \
+		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QJsonObject \
+		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qjsonobject.h \
+		../../Src/Visitor/mediavisitor.h \
+		../../Src/Media/articlemedia.h \
+		../../Src/Media/abstractmedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../Src/Media/bookmedia.h \
+		../../Src/Media/moviemedia.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o jsonvisitor.o ../../Src/Visitor/jsonvisitor.cpp
+
 mediavisitor.o: ../../Src/Visitor/mediavisitor.cpp ../../Src/Visitor/mediavisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mediavisitor.o ../../Src/Visitor/mediavisitor.cpp
 
@@ -1690,14 +1723,18 @@ main.o: ../../main.cpp ../../Src/View/mainwindow.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QSplitter \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsplitter.h \
 		../../Src/Container/container.h \
-		../../Src/View/medialistwidget.h \
+		../../Src/View/editmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../Src/View/listwidgetelement.h \
-		../../Src/Visitor/concretevisitor.h \
+		../../Src/Media/abstractmedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../Src/Visitor/mediavisitor.h \
+		../../Src/Visitor/concretevisitor.h \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Src/View/medialistwidget.h \
+		../../Src/View/listwidgetelement.h \
 		../../Src/View/mediawidget.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -1761,7 +1798,6 @@ main.o: ../../main.cpp ../../Src/View/mainwindow.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemdelegate.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemeditorfactory.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qkeysequenceedit.h \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayout.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayoutitem.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \

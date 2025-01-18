@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     Src/Container/container.cpp \
+    Src/Json/jsonstorage.cpp \
     Src/Media/abstractmedia.cpp \
     Src/Media/articlemedia.cpp \
     Src/Media/bookmedia.cpp \
@@ -21,11 +22,13 @@ SOURCES += \
     Src/View/mediawidget.cpp \
     Src/View/searchbar.cpp \
     Src/Visitor/concretevisitor.cpp \
+    Src/Visitor/jsonvisitor.cpp \
     Src/Visitor/mediavisitor.cpp \
     main.cpp \
 
 HEADERS += \
     Src/Container/container.h \
+    Src/Json/jsonstorage.h \
     Src/Media/abstractmedia.h \
     Src/Media/articlemedia.h \
     Src/Media/bookmedia.h \
@@ -37,6 +40,7 @@ HEADERS += \
     Src/View/mediawidget.h \
     Src/View/searchbar.h \
     Src/Visitor/concretevisitor.h \
+    Src/Visitor/jsonvisitor.h \
     Src/Visitor/mediavisitor.h \
 
 

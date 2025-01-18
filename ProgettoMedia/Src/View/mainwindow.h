@@ -7,8 +7,7 @@
 #include "medialistwidget.h"
 #include "Src/Visitor/concretevisitor.h"
 #include "mediawidget.h"
-#include <QString> // Ensure QString is included
-
+#include <QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,6 +27,7 @@ public:
     void showError(const QString &);
     bool showQuestion();
     void onMediaEdited(AbstractMedia* media);
+    void clearMedias();
 
 public slots:
     void showEditOnAdd();
@@ -35,12 +35,15 @@ public slots:
     void onMediaCreated(AbstractMedia*);
     void onMediaDeleted(const std::string&);
     void showMediaWidget(const std::string&);
+    void saveMedia();
+    void openMedia();
 
 private:
     QSplitter *HSplitter;
     QSplitter *VSplitter;
     Container* container;
     Container* searchContainer;
+    //EditMedia* editMediaEdit;
     ConcreteVisitor* visitor;
     MediaWidget* mediaWidget;
     MediaListWidget* list;

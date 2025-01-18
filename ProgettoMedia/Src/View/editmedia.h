@@ -12,7 +12,7 @@ class EditMedia;
 class EditMedia : public QWidget
 {
     Q_OBJECT
-
+private:
 public:
     explicit EditMedia(QWidget *parent = nullptr);
     ~EditMedia();

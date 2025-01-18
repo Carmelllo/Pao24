@@ -28,6 +28,7 @@ EditMedia::~EditMedia()
 
 void EditMedia::changeView(int index)
 {
+
     ui->infoStackedWidget->setCurrentIndex(index);
 }
 
@@ -75,16 +76,18 @@ void EditMedia::onApplyButtonClicked() {
 
     }
 
-    if (ui->comboBox->currentIndex() == 1){// Article
-            media = new ArticleMedia(
+    if (ui->comboBox->currentIndex()== 1){// Article
+        media = new ArticleMedia(
             name.toStdString(),
             year,
             author.toStdString(),
             description.toStdString(),
             picture,
             ui->volume->value(),
-            ui->issue->value()),
-            (ui->journal->text()).toStdString();
+            ui->issue->value(),
+            (ui->journal->text()).toStdString()
+            );
+
 
     }
 
@@ -119,32 +122,51 @@ void EditMedia::onApplyEditButtonClicked(ConcreteVisitor* visitor) {
     ui->author->setText(QString::fromStdString(attributes.author));
     ui->imageLabel->setPixmap(attributes.img);
 
-    if (ui->comboBox->currentIndex() == 0){// Book
-
-        ui->pages->setValue(std::stoi(attributes.details.at("Pages")));
-        ui->publisher->setText(QString::fromStdString(attributes.details.at("Publisher")));
-        ui->genre->setText(QString::fromStdString(attributes.details.at("Genre")));
+    if (attributes.details.find("Pages") != attributes.details.end()) {
+        ui->comboBox->setCurrentIndex(0);
+    } else if (attributes.details.find("Volume") != attributes.details.end()) {
+        ui->comboBox->setCurrentIndex(1);
+    } else if (attributes.details.find("Length") != attributes.details.end()) {
+        ui->comboBox->setCurrentIndex(2);
     }
-    if (ui->comboBox->currentIndex() == 1){// Article
 
-        ui->volume->setValue(std::stoi(attributes.details.at("Volume")));
-        ui->issue->setValue(std::stoi(attributes.details.at("Issue")));
-        ui->journal->setText(QString::fromStdString(attributes.details.at("Journal")));
+
+    if (ui->comboBox->currentIndex() == 0) {// Book
+        auto pagesIter = attributes.details.find("Pages");
+        auto publisherIter = attributes.details.find("Publisher");
+        auto genreIter = attributes.details.find("Genre");
+
+        ui->pages->setValue((pagesIter != attributes.details.end()) ? std::stoi(pagesIter->second) : 0);
+        ui->publisher->setText((publisherIter != attributes.details.end()) ? QString::fromStdString(publisherIter->second) : "Unknown");
+        ui->genre->setText((genreIter != attributes.details.end()) ? QString::fromStdString(genreIter->second) : "Unknown");
     }
-    if (ui->comboBox->currentIndex() == 3){// Movie
 
-        int totalMinutes = std::stoi(attributes.details.at("Length"));
+    if (ui->comboBox->currentIndex() == 1) {// Article
+        auto volumeIter = attributes.details.find("Volume");
+        auto issueIter = attributes.details.find("Issue");
+        auto journalIter = attributes.details.find("Journal");
+
+        ui->volume->setValue((volumeIter != attributes.details.end()) ? std::stoi(volumeIter->second) : 0);
+        ui->issue->setValue((issueIter != attributes.details.end()) ? std::stoi(issueIter->second) : 0);
+        ui->journal->setText((journalIter != attributes.details.end()) ? QString::fromStdString(journalIter->second) : "Unknown");
+    }
+
+    if (ui->comboBox->currentIndex() == 2) {// Movie
+        auto lengthIter = attributes.details.find("Length");
+        auto directorIter = attributes.details.find("Director");
+        auto studioIter = attributes.details.find("Studio");
+
+        int totalMinutes = (lengthIter != attributes.details.end()) ? std::stoi(lengthIter->second) : 0;
         int hours = totalMinutes / 60;
         int minutes = totalMinutes % 60;
 
         QTime time(hours, minutes);
 
         ui->length->setTime(time);
-        ui->director->setText(QString::fromStdString(attributes.details.at("Director")));
-        ui->studio->setText(QString::fromStdString(attributes.details.at("Studio")));
+        ui->director->setText((directorIter != attributes.details.end()) ? QString::fromStdString(directorIter->second) : "Unknown");
+        ui->studio->setText((studioIter != attributes.details.end()) ? QString::fromStdString(studioIter->second) : "Unknown");
     }
-
-
-
 }
+
+
 
