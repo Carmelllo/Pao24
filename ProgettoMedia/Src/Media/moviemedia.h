@@ -5,7 +5,7 @@
 class MovieMedia : public AbstractMedia
 {
 private:
-    double length;
+    unsigned int length;
     std::string director;
     std::string studio;
 
@@ -16,18 +16,18 @@ public:
         const std::string & ="",
         const std::string & ="",
         const QPixmap& = QPixmap(":/Images/default.png"),
-        const double& = 0,
+        const unsigned int& = 0,
         const std::string& = "",
         const std::string& ="");
 
     virtual ~MovieMedia() override;
 
     //Gets
-    double getLength() const;
+    unsigned int getLength() const;
     std::string getDirector() const;
     std::string getStudio() const;
     //Sets
-    void setLength(const double&);
+    void setLength(const unsigned int&);
     void setDirector(const std::string &);
     void setStudio(const std::string &);
     //Visitor

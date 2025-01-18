@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "Src/Media/abstractmedia.h"
+#include "Src/Visitor/concretevisitor.h"
 
 namespace Ui {
 class EditMedia;
@@ -15,7 +16,8 @@ class EditMedia : public QWidget
 public:
     explicit EditMedia(QWidget *parent = nullptr);
     ~EditMedia();
-
+    void showEditWindow();
+    void onApplyEditButtonClicked(ConcreteVisitor* visitor);
 signals:
     void onApply(AbstractMedia *);
 

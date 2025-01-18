@@ -2,16 +2,16 @@
 #include "Src/Media/abstractmedia.h"
 
 
-
 //DELETE
-void Container::remove(const AbstractMedia *m) {
-    for(auto it = media.begin(); it!=media.end(); ++it){
-        if(m == (*it))
+void Container::remove(const AbstractMedia* m) {
+    bool found = false;
+    for (auto it = media.begin(); it != media.end() && found == false; it++)
+    {
+        if (m->getName() == (*it)->getName())
         {
             media.erase(it);
-            delete *it;
+            found=true;
         }
-
     }
 }
 //UPDATE

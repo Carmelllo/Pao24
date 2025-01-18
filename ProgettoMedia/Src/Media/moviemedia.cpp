@@ -6,14 +6,13 @@ MovieMedia::MovieMedia(
     const std::string & a,
     const std::string & d,
     const QPixmap& img,
-    const double&l,
+    const unsigned int&l,
     const std::string&dir,
     const std::string&s) : AbstractMedia(n,y,a,d,img), length(l), director(dir), studio(s) {}
 
 MovieMedia::~MovieMedia() {}
 
-double MovieMedia::getLength() const{
-
+unsigned int MovieMedia::getLength() const{
     return length;
 
 }
@@ -30,7 +29,7 @@ std::string MovieMedia::getStudio() const{
 
 }
 
-void MovieMedia::setLength(const double &l){
+void MovieMedia::setLength(const unsigned int &l){
 
     this->length = l;
 

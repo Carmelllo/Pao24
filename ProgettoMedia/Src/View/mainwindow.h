@@ -6,7 +6,6 @@
 #include "Src/Container/container.h"
 #include "medialistwidget.h"
 #include "Src/Visitor/concretevisitor.h"
-#include "editmedia.h"
 #include "mediawidget.h"
 #include <QString> // Ensure QString is included
 
@@ -25,13 +24,18 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void search(std::string&);
-    void update();
+    void checkWidget(QWidget*);
     void showError(const QString &);
+    bool showQuestion();
+    void onMediaEdited(AbstractMedia* media);
 
 public slots:
     void showEditOnAdd();
+    void showEdit(const std::string& name);
     void onMediaCreated(AbstractMedia*);
+    void onMediaDeleted(const std::string&);
     void showMediaWidget(const std::string&);
+
 private:
     QSplitter *HSplitter;
     QSplitter *VSplitter;
@@ -40,7 +44,6 @@ private:
     ConcreteVisitor* visitor;
     MediaWidget* mediaWidget;
     MediaListWidget* list;
-    EditMedia* editMediaWidget;
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H

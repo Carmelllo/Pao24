@@ -31,6 +31,15 @@ void EditMedia::changeView(int index)
     ui->infoStackedWidget->setCurrentIndex(index);
 }
 
+
+void EditMedia::showEditWindow(){
+    setWindowTitle("Edit Media");
+    setWindowModality(Qt::ApplicationModal);
+    setFocus();
+
+    show();
+}
+
 void EditMedia::uploadImage()
 {
     QString fileName = QFileDialog::getOpenFileName(this, "Select an Image", "", "Images (*.png *.jpg *.bmp *.jpeg)");
@@ -45,7 +54,7 @@ void EditMedia::uploadImage()
 
 void EditMedia::onApplyButtonClicked() {
 
-    AbstractMedia * media = nullptr;
+    AbstractMedia * media;
     QString name = ui->name->text();
     QString author = ui->author->text();
     QString description = ui->description->toPlainText();
@@ -86,7 +95,7 @@ void EditMedia::onApplyButtonClicked() {
             author.toStdString(),
             description.toStdString(),
             picture,
-            double(ui->length->time().minute() + ( ui->length->time().hour() * 60 )),
+            (ui->length->time().minute() + ( ui->length->time().hour() * 60 )),
             (ui->director->text()).toStdString(),
             (ui->studio->text()).toStdString());
 
@@ -100,5 +109,42 @@ void EditMedia::onApplyButtonClicked() {
     ui->imageStackedWidget->setCurrentIndex(0);
 
     close();
+}
+void EditMedia::onApplyEditButtonClicked(ConcreteVisitor* visitor) {
+    const ConcreteVisitor::Attributes& attributes = visitor->getAttributes();
+
+
+    ui->name->setText(QString::fromStdString(attributes.name));
+    ui->year->setValue(std::stoi(attributes.year));
+    ui->author->setText(QString::fromStdString(attributes.author));
+    ui->imageLabel->setPixmap(attributes.img);
+
+    if (ui->comboBox->currentIndex() == 0){// Book
+
+        ui->pages->setValue(std::stoi(attributes.details.at("Pages")));
+        ui->publisher->setText(QString::fromStdString(attributes.details.at("Publisher")));
+        ui->genre->setText(QString::fromStdString(attributes.details.at("Genre")));
+    }
+    if (ui->comboBox->currentIndex() == 1){// Article
+
+        ui->volume->setValue(std::stoi(attributes.details.at("Volume")));
+        ui->issue->setValue(std::stoi(attributes.details.at("Issue")));
+        ui->journal->setText(QString::fromStdString(attributes.details.at("Journal")));
+    }
+    if (ui->comboBox->currentIndex() == 3){// Movie
+
+        int totalMinutes = std::stoi(attributes.details.at("Length"));
+        int hours = totalMinutes / 60;
+        int minutes = totalMinutes % 60;
+
+        QTime time(hours, minutes);
+
+        ui->length->setTime(time);
+        ui->director->setText(QString::fromStdString(attributes.details.at("Director")));
+        ui->studio->setText(QString::fromStdString(attributes.details.at("Studio")));
+    }
+
+
+
 }
 

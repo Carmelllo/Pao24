@@ -48,7 +48,6 @@ void MediaListWidget::addWidget(const QPixmap& img, const std::string &s, const 
     ui->listWidget->addItem(listItem);
 
     ui->listWidget->setItemWidget(listItem, elementWidget);
-    disconnect(elementWidget, &ListWidgetElement::inspectClicked, this, &MediaListWidget::receiveWidgetName);
     connect(elementWidget, &ListWidgetElement::inspectClicked ,this , &MediaListWidget::receiveWidgetName);
 
     }

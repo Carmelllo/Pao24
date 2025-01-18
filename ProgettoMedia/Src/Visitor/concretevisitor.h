@@ -32,6 +32,9 @@ public:
     void setAttributes(const ArticleMedia *);
     void setAttributes(const BookMedia *);
     void setAttributes(const MovieMedia *);
+    void getAttributes(ArticleMedia *);
+    void getAttributes(BookMedia *);
+    void getAttributes(MovieMedia *);
 
     QPixmap getIcon() const;
     Attributes getAttributes() const;

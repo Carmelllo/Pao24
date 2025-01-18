@@ -8,6 +8,7 @@
 
 #include "../../Src/View/mainwindow.h"
 #include <QtGui/qtextcursor.h>
+#include <QtGui/qscreen.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -41,10 +42,13 @@ static constexpr auto qt_meta_stringdata_ZN10MainWindowE = QtMocHelpers::stringD
     "MainWindow",
     "showEditOnAdd",
     "",
+    "showEdit",
+    "std::string",
+    "name",
     "onMediaCreated",
     "AbstractMedia*",
-    "showMediaWidget",
-    "std::string"
+    "onMediaDeleted",
+    "showMediaWidget"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -56,7 +60,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,14 +68,18 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   32,    2, 0x0a,    1 /* Public */,
-       3,    1,   33,    2, 0x0a,    2 /* Public */,
-       5,    1,   36,    2, 0x0a,    4 /* Public */,
+       1,    0,   44,    2, 0x0a,    1 /* Public */,
+       3,    1,   45,    2, 0x0a,    2 /* Public */,
+       6,    1,   48,    2, 0x0a,    4 /* Public */,
+       8,    1,   51,    2, 0x0a,    6 /* Public */,
+       9,    1,   54,    2, 0x0a,    8 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 4,    5,
+    QMetaType::Void, 0x80000000 | 7,    2,
     QMetaType::Void, 0x80000000 | 4,    2,
-    QMetaType::Void, 0x80000000 | 6,    2,
+    QMetaType::Void, 0x80000000 | 4,    2,
 
        0        // eod
 };
@@ -87,9 +95,15 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
         // method 'showEditOnAdd'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'showEdit'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const std::string &, std::false_type>,
         // method 'onMediaCreated'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<AbstractMedia *, std::false_type>,
+        // method 'onMediaDeleted'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const std::string &, std::false_type>,
         // method 'showMediaWidget'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const std::string &, std::false_type>
@@ -103,8 +117,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->showEditOnAdd(); break;
-        case 1: _t->onMediaCreated((*reinterpret_cast< std::add_pointer_t<AbstractMedia*>>(_a[1]))); break;
-        case 2: _t->showMediaWidget((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
+        case 1: _t->showEdit((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
+        case 2: _t->onMediaCreated((*reinterpret_cast< std::add_pointer_t<AbstractMedia*>>(_a[1]))); break;
+        case 3: _t->onMediaDeleted((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
+        case 4: _t->showMediaWidget((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
         default: ;
         }
     }
@@ -129,14 +145,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 5;
     }
     return _id;
 }

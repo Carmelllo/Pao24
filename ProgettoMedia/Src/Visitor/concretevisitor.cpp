@@ -74,4 +74,3 @@ void ConcreteVisitor::setAttributes(const MovieMedia * media){
 
 
 
-

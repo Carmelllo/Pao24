@@ -962,6 +962,9 @@ moc_editmedia.cpp: ../../Src/View/editmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../Src/Visitor/mediavisitor.h \
+		../../Src/Visitor/concretevisitor.h \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
 		../../../../Qt/6.8.1/macos/libexec/moc
 	/Users/carmelo/Qt/6.8.1/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/carmelo/Qt/6.8.1/macos/mkspecs/macx-clang -I/Users/carmelo/Desktop/ProgettoMedia -I/Users/carmelo/Qt/6.8.1/macos/lib/QtWidgets.framework/Headers -I/Users/carmelo/Qt/6.8.1/macos/lib/QtGui.framework/Headers -I/Users/carmelo/Qt/6.8.1/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/carmelo/Qt/6.8.1/macos/lib ../../Src/View/editmedia.h -o moc_editmedia.cpp
 
@@ -985,14 +988,127 @@ moc_mainwindow.cpp: ../../Src/View/mainwindow.h \
 		../../Src/Visitor/mediavisitor.h \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
-		../../Src/View/editmedia.h \
-		../../Src/Media/abstractmedia.h \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../Src/View/mediawidget.h \
-		../../Src/Media/bookmedia.h \
-		../../Src/Media/articlemedia.h \
-		../../Src/Media/moviemedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QtWidgets \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractitemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractitemview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractscrollarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractslider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractspinbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qaccessiblewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qaction.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qactiongroup.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qbuttongroup.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcalendarwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolordialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolormap.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolumnview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcommandlinkbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcommonstyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcompleter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdatawidgetmapper.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdial.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdockwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdrawutil.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qerrormessage.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfileiconprovider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfilesystemmodel.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfocusframe.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfontcombobox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfontdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qformlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgesture.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgesturerecognizer.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsanchorlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicseffect.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsgridlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitemanimation.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslayoutitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslinearlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicstransform.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicswidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgroupbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qheaderview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemeditorfactory.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qkeysequenceedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlistview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmdiarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmenu.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmenubar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qplaintextedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qprogressbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qprogressdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qproxystyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qradiobutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qrhiwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qrubberband.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscroller.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollerproperties.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qshortcut.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsizegrip.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsizepolicy.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qslider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qspinbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsplashscreen.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstackedlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstackedwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstatusbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleditemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstylefactory.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleoption.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstylepainter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleplugin.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsystemtrayicon.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtabbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtableview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtabwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtextbrowser.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtooltip.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreeview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreewidgetitemiterator.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsversion.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qundoview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwhatsthis.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidgetaction.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwizard.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/6.8.1/macos/libexec/moc
@@ -1013,13 +1129,132 @@ moc_medialistwidget.cpp: ../../Src/View/medialistwidget.h \
 moc_mediawidget.cpp: ../../Src/View/mediawidget.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../Src/Media/bookmedia.h \
-		../../Src/Media/abstractmedia.h \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../Src/Visitor/concretevisitor.h \
 		../../Src/Visitor/mediavisitor.h \
-		../../Src/Media/articlemedia.h \
-		../../Src/Media/moviemedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QtWidgets \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractitemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractitemview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractscrollarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractslider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractspinbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qaccessiblewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qaction.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qactiongroup.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qbuttongroup.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcalendarwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolordialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolormap.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolumnview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcommandlinkbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcommonstyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcompleter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdatawidgetmapper.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdial.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdockwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdrawutil.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qerrormessage.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfileiconprovider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfilesystemmodel.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfocusframe.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfontcombobox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfontdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qformlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgesture.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgesturerecognizer.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsanchorlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicseffect.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsgridlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitemanimation.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslayoutitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslinearlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicstransform.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicswidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgroupbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qheaderview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemeditorfactory.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qkeysequenceedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlistview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmdiarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmenu.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmenubar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qplaintextedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qprogressbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qprogressdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qproxystyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qradiobutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qrhiwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qrubberband.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscroller.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollerproperties.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qshortcut.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsizegrip.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsizepolicy.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qslider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qspinbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsplashscreen.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsplitter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstackedlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstackedwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstatusbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleditemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstylefactory.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleoption.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstylepainter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleplugin.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsystemtrayicon.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtabbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtableview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtabwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtextbrowser.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtooltip.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreeview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreewidgetitemiterator.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsversion.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qundoview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwhatsthis.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidgetaction.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwizard.h \
 		../../../../Qt/6.8.1/macos/libexec/moc
 	/Users/carmelo/Qt/6.8.1/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/carmelo/Qt/6.8.1/macos/mkspecs/macx-clang -I/Users/carmelo/Desktop/ProgettoMedia -I/Users/carmelo/Qt/6.8.1/macos/lib/QtWidgets.framework/Headers -I/Users/carmelo/Qt/6.8.1/macos/lib/QtGui.framework/Headers -I/Users/carmelo/Qt/6.8.1/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/carmelo/Qt/6.8.1/macos/lib ../../Src/View/mediawidget.h -o moc_mediawidget.cpp
 
@@ -1113,11 +1348,16 @@ editmedia.o: ../../Src/View/editmedia.cpp ../../Src/View/editmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../Src/Visitor/mediavisitor.h \
+		../../Src/Visitor/concretevisitor.h \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
 		ui_editmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QFileDialog \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../Src/Container/container.h \
 		../../Src/Media/bookmedia.h \
 		../../Src/Media/articlemedia.h \
@@ -1144,20 +1384,136 @@ mainwindow.o: ../../Src/View/mainwindow.cpp ../../Src/View/mainwindow.h \
 		../../Src/Visitor/mediavisitor.h \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
-		../../Src/View/editmedia.h \
-		../../Src/Media/abstractmedia.h \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../Src/View/mediawidget.h \
-		../../Src/Media/bookmedia.h \
-		../../Src/Media/articlemedia.h \
-		../../Src/Media/moviemedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QtWidgets \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractitemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractitemview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractscrollarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractslider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractspinbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qaccessiblewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qaction.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qactiongroup.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qbuttongroup.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcalendarwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolordialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolormap.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolumnview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcommandlinkbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcommonstyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcompleter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdatawidgetmapper.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdial.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdockwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdrawutil.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qerrormessage.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfileiconprovider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfilesystemmodel.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfocusframe.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfontcombobox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfontdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qformlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgesture.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgesturerecognizer.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsanchorlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicseffect.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsgridlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitemanimation.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslayoutitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslinearlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicstransform.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicswidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgroupbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qheaderview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemeditorfactory.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qkeysequenceedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlistview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmdiarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmenu.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmenubar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qplaintextedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qprogressbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qprogressdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qproxystyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qradiobutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qrhiwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qrubberband.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscroller.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollerproperties.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qshortcut.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsizegrip.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsizepolicy.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qslider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qspinbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsplashscreen.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstackedlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstackedwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstatusbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleditemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstylefactory.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleoption.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstylepainter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleplugin.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsystemtrayicon.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtabbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtableview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtabwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtextbrowser.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtooltip.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreeview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreewidgetitemiterator.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsversion.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qundoview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwhatsthis.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidgetaction.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwizard.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qstring.h \
 		ui_mainwindow.h \
 		../../Src/View/searchbar.h \
+		../../Src/View/editmedia.h \
+		../../Src/Media/abstractmedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qboxlayout.h
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QMessageBox
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../Src/View/mainwindow.cpp
 
 medialistwidget.o: ../../Src/View/medialistwidget.cpp ../../Src/View/medialistwidget.h \
@@ -1178,13 +1534,132 @@ medialistwidget.o: ../../Src/View/medialistwidget.cpp ../../Src/View/medialistwi
 mediawidget.o: ../../Src/View/mediawidget.cpp ../../Src/View/mediawidget.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../Src/Media/bookmedia.h \
-		../../Src/Media/abstractmedia.h \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../Src/Visitor/concretevisitor.h \
 		../../Src/Visitor/mediavisitor.h \
-		../../Src/Media/articlemedia.h \
-		../../Src/Media/moviemedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QtWidgets \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractitemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractitemview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractscrollarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractslider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractspinbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qaccessiblewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qaction.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qactiongroup.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qbuttongroup.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcalendarwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolordialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolormap.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolumnview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcommandlinkbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcommonstyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcompleter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdatawidgetmapper.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdial.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdockwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdrawutil.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qerrormessage.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfileiconprovider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfilesystemmodel.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfocusframe.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfontcombobox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfontdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qformlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgesture.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgesturerecognizer.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsanchorlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicseffect.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsgridlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitemanimation.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslayoutitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslinearlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicstransform.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicswidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgroupbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qheaderview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemeditorfactory.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qkeysequenceedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlistview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmdiarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmenu.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmenubar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qplaintextedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qprogressbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qprogressdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qproxystyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qradiobutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qrhiwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qrubberband.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscroller.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollerproperties.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qshortcut.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsizegrip.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsizepolicy.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qslider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qspinbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsplashscreen.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsplitter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstackedlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstackedwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstatusbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleditemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstylefactory.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleoption.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstylepainter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleplugin.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsystemtrayicon.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtabbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtableview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtabwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtextbrowser.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtooltip.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreeview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreewidgetitemiterator.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsversion.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qundoview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwhatsthis.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidgetaction.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwizard.h \
 		ui_mediawidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mediawidget.o ../../Src/View/mediawidget.cpp
 
@@ -1197,7 +1672,13 @@ searchbar.o: ../../Src/View/searchbar.cpp ../../Src/View/searchbar.h \
 concretevisitor.o: ../../Src/Visitor/concretevisitor.cpp ../../Src/Visitor/concretevisitor.h \
 		../../Src/Visitor/mediavisitor.h \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
-		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Src/Media/articlemedia.h \
+		../../Src/Media/abstractmedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../Src/Media/bookmedia.h \
+		../../Src/Media/moviemedia.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o concretevisitor.o ../../Src/Visitor/concretevisitor.cpp
 
 mediavisitor.o: ../../Src/Visitor/mediavisitor.cpp ../../Src/Visitor/mediavisitor.h
@@ -1217,18 +1698,130 @@ main.o: ../../main.cpp ../../Src/View/mainwindow.h \
 		../../Src/Visitor/mediavisitor.h \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
 		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
-		../../Src/View/editmedia.h \
-		../../Src/Media/abstractmedia.h \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../Src/View/mediawidget.h \
-		../../Src/Media/bookmedia.h \
-		../../Src/Media/articlemedia.h \
-		../../Src/Media/moviemedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QtWidgets \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractitemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractitemview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractscrollarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractslider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qabstractspinbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qaccessiblewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qaction.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qactiongroup.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qbuttongroup.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcalendarwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolordialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolormap.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcolumnview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcommandlinkbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcommonstyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qcompleter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdatawidgetmapper.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdial.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdockwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qdrawutil.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qerrormessage.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfileiconprovider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfilesystemmodel.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfocusframe.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfontcombobox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qfontdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qformlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qframe.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgesture.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgesturerecognizer.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsanchorlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicseffect.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsgridlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitemanimation.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslayoutitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicslinearlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicstransform.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgraphicswidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qgroupbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qheaderview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qitemeditorfactory.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qkeysequenceedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlistview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmdiarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmenu.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmenubar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qplaintextedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qprogressbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qprogressdialog.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qproxystyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qradiobutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qrhiwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qrubberband.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscroller.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qscrollerproperties.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qshortcut.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsizegrip.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsizepolicy.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qslider.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qspinbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsplashscreen.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstackedlayout.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstackedwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstatusbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyle.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleditemdelegate.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstylefactory.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleoption.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstylepainter.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qstyleplugin.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qsystemtrayicon.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtabbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtableview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtabwidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtextbrowser.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbar.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbox.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtoolbutton.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtooltip.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreeview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreewidget.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtreewidgetitemiterator.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsversion.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qundoview.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwhatsthis.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidgetaction.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwizard.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qstring.h \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QApplication \
-		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qapplication.h
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QApplication
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 qrc_Resources.o: qrc_Resources.cpp 

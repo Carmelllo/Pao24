@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "searchbar.h"
+#include "editmedia.h"
 #include <QVBoxLayout>
 #include <QSplitter>
 #include <QMessageBox>
@@ -16,9 +17,9 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle(QString::fromStdString("Media library"));
 
     mediaWidget = new MediaWidget();
+
     SearchBar* searchbar = new SearchBar();
 
-    editMediaWidget = new EditMedia();
     visitor = new ConcreteVisitor();
 
     list = new MediaListWidget(this);
@@ -28,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     HSplitter = new QSplitter;
     VSplitter = new QSplitter;
 
-    HSplitter->setChildrenCollapsible(false);
+    HSplitter->setChildrenCollapsible(true);
     VSplitter->setChildrenCollapsible(false);
 
     VSplitter->setOrientation(Qt::Vertical);
@@ -40,13 +41,13 @@ MainWindow::MainWindow(QWidget *parent)
     VSplitter->addWidget(HSplitter);
     HSplitter->addWidget(list);
 
-
     setCentralWidget(VSplitter);
 
     connect(searchbar, &SearchBar::onSearch, this, &MainWindow::search);
     connect(list, &MediaListWidget::addClick, this, &MainWindow::showEditOnAdd);
-    connect(editMediaWidget, &EditMedia::onApply, this, &MainWindow::onMediaCreated);
     connect(list, &MediaListWidget::sendWidgetName, this, &MainWindow::showMediaWidget);
+    connect(mediaWidget, &MediaWidget::onRemove, this, &MainWindow::onMediaDeleted);
+    connect(mediaWidget, &MediaWidget::onEdit, this, &MainWindow::showEdit);
 
     container = new Container();
     searchContainer = new Container();
@@ -59,18 +60,39 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::showEditOnAdd() {
-    EditMedia* editMedia = new EditMedia();
+    EditMedia* editMediaAdd = new EditMedia();
 
-    connect(editMedia, &EditMedia::onApply, this, &MainWindow::onMediaCreated);
-    editMedia->setWindowTitle("Edit Media");
-    editMedia->setWindowModality(Qt::ApplicationModal);
-    editMedia->setFocus();
+    connect(editMediaAdd, &EditMedia::onApply, this, &MainWindow::onMediaCreated);
+    editMediaAdd->showEditWindow();
+}
+void MainWindow::showEdit(const std::string& name) {
 
-    editMedia->show();
+    EditMedia* editMediaEdit = new EditMedia();
+    ConcreteVisitor* visitor = new ConcreteVisitor();
+
+    for (auto it = container->begin(); it != container->end();) {
+        if ((*it)->getName() == name) {
+            (*it)->accept(visitor);
+
+            editMediaEdit->onApplyEditButtonClicked(visitor);
+            connect(editMediaEdit, &EditMedia::onApply, this, &MainWindow::onMediaEdited);
+            editMediaEdit->showEditWindow();
+
+            mediaWidget->hide();
+
+            container->remove(*it);
+            list->refresh();
+            list->showWidgets(container, visitor);
+            delete visitor;
+
+            break;
+        } else {
+            ++it;
+        }
+    }
 }
 
 void MainWindow::onMediaCreated(AbstractMedia* media) {
-    //logic to add media to container
     for(auto it = container->begin(); it != container->end(); ++it){
         if(media->getName()==(*it)->getName()){
             showError("Name already taken");
@@ -81,17 +103,37 @@ void MainWindow::onMediaCreated(AbstractMedia* media) {
     list->refresh();//importante per non mostrare duplicati se aggiungo nome uguale e poi nome nuovo
     list->showWidgets(container, visitor);
 }
+void MainWindow::onMediaEdited(AbstractMedia* media) {
+    container->add(media);
+    list->refresh();
+    list->showWidgets(container, visitor);
+}
+
+void MainWindow::onMediaDeleted(const std::string& name){
+
+    if(showQuestion()){
+    for (auto it = container->begin(); it != container->end();) {
+        if ((*it)->getName() == name) {
+            qDebug() << name << " = " << ((*it)->getName());
+            container->remove(*it);
+            list->refresh();
+            list->showWidgets(container, visitor);
+            mediaWidget->hide();
+            break;
+        } else {
+            ++it;
+        }
+    }}
+}
 
 void MainWindow::showMediaWidget(const std::string& name){
     ConcreteVisitor* visitor = new ConcreteVisitor();
-    qDebug() << name << " button clicked!";
     for(auto it = container->begin(); it != container->end(); ++it){
-        qDebug() << "Comparing:" << QString::fromStdString(name) << "with" << (*it)->getName();
         if(name==(*it)->getName()){
-            qDebug() << name << "Works";
             (*it)->accept(visitor);
-            mediaWidget->show(visitor);
-            update();
+            mediaWidget->showMedia(visitor);
+            checkWidget(mediaWidget);
+            mediaWidget->show();
             delete visitor;
         }
 
@@ -114,18 +156,24 @@ void MainWindow::search(std::string& query) {
     }
 }
 
-void MainWindow::update(){
-    if(!mediaWidget->isActiveWindow() && HSplitter->indexOf(mediaWidget) == -1)
-        HSplitter->addWidget(mediaWidget);
-
+void MainWindow::checkWidget(QWidget* widget){
+    if(!widget->isActiveWindow() && HSplitter->indexOf(widget) == -1){
+        HSplitter->addWidget(widget);
+    }
 }
 
 void MainWindow::showError(const QString &message) {
-    QMessageBox::critical(
-        this,                     // Parent widget (use this if inside a window)
-        "Error",                   // Title of the popup window
-        message,                   // The error message
-        QMessageBox::Ok            // Button (Ok button to close the popup)
-        );
+    QMessageBox::critical(this, "Error", message, QMessageBox::Ok);
+}
+
+bool MainWindow::showQuestion() {
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Confirmation", "Are you sure you want to delete this item?",QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+
+    if (reply == QMessageBox::Yes) {
+        return true;
+    } else {
+        return false;
+    }
 }
 

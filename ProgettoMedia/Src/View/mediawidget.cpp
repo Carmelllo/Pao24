@@ -1,12 +1,12 @@
 #include "mediawidget.h"
 #include "ui_mediawidget.h"
-#include <QtWidgets>
 
 MediaWidget::MediaWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MediaWidget)
 {
     ui->setupUi(this);
+
 }
 
 MediaWidget::~MediaWidget()
@@ -15,11 +15,14 @@ MediaWidget::~MediaWidget()
 }
 
 
-void MediaWidget::show(ConcreteVisitor* visitor) {
+void MediaWidget::showMedia(ConcreteVisitor* visitor) {
+
     clearUI(ui->Labels);
     clearUI(ui->ImageLayout);
 
     const ConcreteVisitor::Attributes& attributes = visitor->getAttributes();
+
+    widgetName = attributes.name;
 
     QLabel* name = new QLabel("Name: " + QString::fromStdString(attributes.name));
     QLabel* year = new QLabel("Year: " + QString::fromStdString(attributes.year));
@@ -46,7 +49,15 @@ void MediaWidget::show(ConcreteVisitor* visitor) {
         ui->Labels->addWidget(label_detail);
     }
     ui->Labels->addLayout(buttonsLayout);
+    connect(remove,&QPushButton::clicked ,this , &MediaWidget::onRemoveClicked);
+    connect(edit,&QPushButton::clicked ,this , &MediaWidget::onEditClicked);
 
+}
+void MediaWidget::onRemoveClicked(){
+    emit onRemove(widgetName);
+}
+void MediaWidget::onEditClicked(){
+    emit onEdit(widgetName);
 }
 
 
