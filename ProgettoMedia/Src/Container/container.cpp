@@ -28,7 +28,6 @@ void Container::remove(const AbstractMedia* m) {
 //CREATE
 void Container::add(const AbstractMedia* m){
     media.push_back(m);
-    qDebug() << "Adding media: " << QString::fromStdString(m->getName());
 
 }
 
@@ -63,7 +62,6 @@ std::vector<const AbstractMedia*>::const_iterator Container::end() const{
 }
 
 void Container::search(Container* container, std::string query){
-    qDebug() << "Media size: " << media.size();
 
     for(auto it = media.begin(); it!=media.end(); ++it)
     {

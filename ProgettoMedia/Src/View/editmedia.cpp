@@ -62,7 +62,6 @@ void EditMedia::onApplyButtonClicked() {
     unsigned int year = ui->year->value();
     QPixmap picture = ui->imageLabel->pixmap();
 
-
     if (ui->comboBox->currentIndex() == 0){// Book
             media = new BookMedia(
             name.toStdString(),
@@ -73,6 +72,7 @@ void EditMedia::onApplyButtonClicked() {
             ui->pages->text().toUInt(),
             (ui->publisher->text()).toStdString(),
             (ui->genre->text()).toStdString());
+
 
     }
 

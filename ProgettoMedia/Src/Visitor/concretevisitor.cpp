@@ -24,15 +24,15 @@ void ConcreteVisitor::visit(const MovieMedia * media){
 }
 
 void  ConcreteVisitor::setIcon(const ArticleMedia *){
-    icon.load(":/Images/Article.png");
+    icon.load(":/Images/Src/Assets/Article.png");
 
 }
 void  ConcreteVisitor::setIcon(const BookMedia *){
-    icon.load(":/Images/Book.png");
+    icon.load(":/Images/Src/Assets/Book.png");
 
 }
 void  ConcreteVisitor::setIcon(const MovieMedia *){
-    icon.load(":/Images/Movie.png");
+    icon.load(":/Images/Src/Assets/Movie.png");
 }
 
 QPixmap ConcreteVisitor::getIcon() const{

@@ -65,7 +65,6 @@ QPixmap JsonStorage::getImageFromJson(const QJsonObject & object) {
         if (image.loadFromData(byteArray)) {
             return image;
         } else {
-            qWarning() << "Failed to load image from Base64 data!";
             return QPixmap();
         }
     }

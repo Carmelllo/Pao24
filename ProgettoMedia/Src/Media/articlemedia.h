@@ -14,7 +14,7 @@ public:
         const unsigned int & = 2025,
         const std::string & ="",
         const std::string & ="",
-        const QPixmap& = QPixmap(":/Images/default.png"),
+        const QPixmap& = QPixmap(":/Images/Src/Assets/default.png"),
         const unsigned int  & =0,
         const unsigned int  & =0,
         const std::string & ="");

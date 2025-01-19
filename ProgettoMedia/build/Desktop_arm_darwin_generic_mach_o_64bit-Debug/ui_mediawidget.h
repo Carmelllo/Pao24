@@ -33,7 +33,7 @@ public:
         if (MediaWidget->objectName().isEmpty())
             MediaWidget->setObjectName("MediaWidget");
         MediaWidget->resize(500, 315);
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Preferred);
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MediaWidget->sizePolicy().hasHeightForWidth());

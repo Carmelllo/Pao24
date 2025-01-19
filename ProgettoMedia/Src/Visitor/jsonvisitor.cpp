@@ -28,23 +28,6 @@ void JsonVisitor::visit(const ArticleMedia * media){
 
     object = article;
 
-
-
-    /*QJsonObject article; // Assume this contains the JSON object you retrieved
-QString base64Image = article.value("Image").toString();
-
-// Decode the Base64 string back into a QByteArray
-QByteArray byteArray = QByteArray::fromBase64(base64Image.toLatin1());
-
-// Create a QPixmap from the QByteArray
-QPixmap image;
-if (!image.loadFromData(byteArray)) {
-    // Handle the case where the image could not be loaded
-    qWarning() << "Failed to load image from Base64 data!";
-}
-
-// Now `image` is the QPixmap object that you can use
-*/
 }
 
 void JsonVisitor::visit(const BookMedia * media){

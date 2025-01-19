@@ -1,11 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "searchbar.h"
-#include "Src/Json/jsonstorage.h"
 #include "Src/View/editmedia.h"
 #include <QVBoxLayout>
 #include <QSplitter>
-#include <QMessageBox>
+#include "Src/Manager/mediafilemanager.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -65,12 +65,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(openAction, &QAction::triggered, this , &MainWindow::openMedia);
 
+    QAction *closeAction = new QAction("Close Media", this);
+    ui->menuClose->addAction(closeAction);
+
+    connect(closeAction, &QAction::triggered, this , &MainWindow::clearMedias);
+
     container = new Container();
     searchContainer = new Container();
-    // MovieMedia* movie = new MovieMedia();
-
-    // container->add(movie);
-    //list->showWidgets(container, visitor);
 }
 
 MainWindow::~MainWindow()
@@ -86,22 +87,7 @@ void MainWindow::saveMedia(){
     if (fileName.isEmpty()) {
         return;
     }
-    JsonStorage jsonStorage;
-    QJsonArray mediaArray;
-    for(auto it = container->begin(); it != container->end(); ++it){
-        mediaArray.append(jsonStorage.turnToObject(**it));  // Add each media to the JSON array
-    }
-    QJsonDocument doc(mediaArray);
-    QFile saveFile(fileName);
-    if (!saveFile.open(QIODevice::WriteOnly)) {
-        QMessageBox::critical(this, tr("Error"), tr("Could not open the file for writing."));
-        return;
-    }
-    saveFile.write(doc.toJson());
-    saveFile.close();
-
-    QMessageBox::information(this, tr("Success"), tr("Your media has been saved!"));
-
+    MediaFileManager::saveMedia(fileName, container);
 }
 
 void MainWindow::openMedia(){
@@ -109,38 +95,11 @@ void MainWindow::openMedia(){
     if (fileName.isEmpty()) {
         return;
     }
-    QFile loadFile(fileName);
-    if (!loadFile.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(this, tr("Error"), tr("Could not open the file for reading."));
-        return;
-    }
-    QByteArray fileData = loadFile.readAll();
-    loadFile.close();
-    QJsonDocument doc = QJsonDocument::fromJson(fileData);
-    if (doc.isNull()) {
-        QMessageBox::critical(this, tr("Error"), tr("Invalid JSON data."));
-        return;
-    }
-    QJsonArray mediaArray = doc.array();
 
-    clearMedias();
-    for (const QJsonValue &value : mediaArray) {
-        if (value.isObject()) {
-            QJsonObject mediaObject = value.toObject();
-
-            try {
-                AbstractMedia *media = JsonStorage::turnToMedia(mediaObject);
-                container->add(media);
-            } catch (const std::invalid_argument &e) {
-                QMessageBox::critical(this, tr("Error"), tr("Error processing JSON: ") + e.what());
-                return;
-            }
-        }
+    if (MediaFileManager::openMedia(fileName, container)) {
+        list->refresh();
+        list->showWidgets(container, visitor);
     }
-    QMessageBox::information(this, tr("Success"), tr("Media has been loaded successfully!"));
-
-    list->refresh();
-    list->showWidgets(container, visitor);
 
 }
 
@@ -180,7 +139,6 @@ void MainWindow::showEdit(const std::string& name) {
 }
 
 void MainWindow::onMediaCreated(AbstractMedia* media) {
-    qDebug() << container->size();
 
     for(auto it = container->begin(); it != container->end(); ++it){
         if(media->getName()==(*it)->getName()){
@@ -203,7 +161,6 @@ void MainWindow::onMediaDeleted(const std::string& name){
     if(showQuestion()){
     for (auto it = container->begin(); it != container->end();) {
         if ((*it)->getName() == name) {
-            qDebug() << name << " = " << ((*it)->getName());
             container->remove(*it);
             list->refresh();
             list->showWidgets(container, visitor);
@@ -232,7 +189,7 @@ void MainWindow::showMediaWidget(const std::string& name){
 
 
 
-void MainWindow::search(std::string& query) {
+void MainWindow::search(std::string& query) { // va bene come separazione
     list->refresh();
     searchContainer->clear();
     container->search(searchContainer, query);
@@ -246,17 +203,17 @@ void MainWindow::search(std::string& query) {
     }
 }
 
-void MainWindow::checkWidget(QWidget* widget){
+void MainWindow::checkWidget(QWidget* widget){ // va bene come separazione
     if(!widget->isActiveWindow() && HSplitter->indexOf(widget) == -1){
         HSplitter->addWidget(widget);
     }
 }
 
-void MainWindow::showError(const QString &message) {
+void MainWindow::showError(const QString &message) { // va bene come separazione
     QMessageBox::critical(this, "Error", message, QMessageBox::Ok);
 }
 
-bool MainWindow::showQuestion() {
+bool MainWindow::showQuestion() { // va bene come separazione
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, "Confirmation", "Are you sure you want to delete this item?",QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
 
@@ -267,9 +224,10 @@ bool MainWindow::showQuestion() {
     }
 }
 
-void MainWindow::clearMedias() {
+void MainWindow::clearMedias() { // va bene come separazione
     // Safe way to clear container by iterating backwards
     container->clear();
+    mediaWidget->hide();
     list->refresh();
     list->showWidgets(container, visitor);
 }

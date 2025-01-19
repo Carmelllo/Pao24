@@ -5,7 +5,12 @@ AbstractMedia::AbstractMedia(
     const unsigned int &y,
     const std::string &a,
     const std::string &d,
-    const QPixmap& img) : name(n) , year(y) , author(a) , description(d), image(img){};
+    const QPixmap& img) : name(n) , year(y) , author(a) , description(d), image(img){
+
+        if (img.isNull()) {
+            image = QPixmap(":/Images/Src/Assets/default.png"); // Fallback to default if picture is empty
+        }
+};
 
 
 AbstractMedia::~AbstractMedia(){}

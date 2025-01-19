@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     Src/Container/container.cpp \
     Src/Json/jsonstorage.cpp \
+    Src/Manager/mediafilemanager.cpp \
     Src/Media/abstractmedia.cpp \
     Src/Media/articlemedia.cpp \
     Src/Media/bookmedia.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
 HEADERS += \
     Src/Container/container.h \
     Src/Json/jsonstorage.h \
+    Src/Manager/mediafilemanager.h \
     Src/Media/abstractmedia.h \
     Src/Media/articlemedia.h \
     Src/Media/bookmedia.h \

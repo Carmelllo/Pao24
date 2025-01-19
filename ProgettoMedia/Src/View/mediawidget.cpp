@@ -42,6 +42,7 @@ void MediaWidget::showMedia(ConcreteVisitor* visitor) {
     ui->Labels->addWidget(name);
     ui->Labels->addWidget(year);
     ui->Labels->addWidget(author);
+    ui->ImageLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     ui->ImageLayout->addWidget(image);
 
     for (const auto& [key, value] : attributes.details) {
