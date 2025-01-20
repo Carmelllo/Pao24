@@ -56,7 +56,7 @@ void EditMedia::uploadImage()
 
 void EditMedia::onApplyButtonClicked() {
 
-    AbstractMedia * media;
+    AbstractMedia * media = nullptr;
     QString name = ui->name->text();
     QString author = ui->author->text();
     QString description = ui->description->toPlainText();
