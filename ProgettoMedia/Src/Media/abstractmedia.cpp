@@ -5,11 +5,8 @@ AbstractMedia::AbstractMedia(
     const unsigned int &y,
     const std::string &a,
     const std::string &d,
-    const QPixmap& img) : name(n) , year(y) , author(a) , description(d), image(img){
+    const std::string &img) : name(n) , year(y) , author(a) , description(d), imagePath(img){
 
-        if (img.isNull()) {
-            image = QPixmap(":/Images/Src/Assets/default.png"); // Fallback to default if picture is empty
-        }
 };
 
 
@@ -35,8 +32,8 @@ std::string AbstractMedia::getAuthor() const{
 
 }
 
-QPixmap AbstractMedia::getImage() const{
-    return image;
+std::string AbstractMedia::getImage() const{
+    return imagePath;
 }
 
 std::string AbstractMedia::getDescription() const{

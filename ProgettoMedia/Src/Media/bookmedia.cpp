@@ -5,7 +5,7 @@ BookMedia::BookMedia(
     const unsigned int & y,
     const std::string & a,
     const std::string & d,
-    const QPixmap& img,
+    const std::string& img,
     const unsigned int & pag,
     const std::string & publ,
     const std::string & g) : AbstractMedia(n,y,a,d,img), pages(pag), publisher(publ), genre(g) {}

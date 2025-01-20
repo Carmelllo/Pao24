@@ -10,8 +10,9 @@
 
 class MediaFileManager {
 public:
-    static void saveMedia(const QString& fileName, Container* container);
-    static bool openMedia(const QString& fileName, Container* container);
+    static void saveMedia(const QString& , Container* );
+    static void clearMedia(Container* );
+    static bool openMedia(const QString& , Container* );
 };
 
 

@@ -66,8 +66,6 @@ void Container::search(Container* container, std::string query){
     for(auto it = media.begin(); it!=media.end(); ++it)
     {
         if((*it)->getName().find(query) != std::string::npos){
-            qDebug() << "Match found: " << QString::fromStdString((*it)->getName());
-
             container->add(*it);
         }
     }

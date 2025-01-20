@@ -20,7 +20,7 @@ AbstractMedia* JsonStorage::turnToMedia(const QJsonObject & object){
             object.value("Year").toInt(),
             object.value("Author").toString().toStdString(),
             object.value("Description").toString().toStdString(),
-            getImageFromJson(object),
+            object.value("Image").toString().toStdString(),
             object.value("Pages").toInt(),
             object.value("Publisher").toString().toStdString(),
             object.value("Genre").toString().toStdString()
@@ -33,7 +33,7 @@ AbstractMedia* JsonStorage::turnToMedia(const QJsonObject & object){
             object.value("Year").toInt(),
             object.value("Author").toString().toStdString(),
             object.value("Description").toString().toStdString(),
-            getImageFromJson(object),
+            object.value("Image").toString().toStdString(),
             object.value("Volume").toInt(),
             object.value("Issue").toInt(),
             object.value("Journal").toString().toStdString()
@@ -47,7 +47,7 @@ else if (object.contains("Director")) {
         object.value("Year").toInt(),
         object.value("Author").toString().toStdString(),
         object.value("Description").toString().toStdString(),
-        getImageFromJson(object),
+        object.value("Image").toString().toStdString(),
         object.value("Length").toInt(),
         object.value("Director").toString().toStdString(),
         object.value("Studio").toString().toStdString()
@@ -57,16 +57,16 @@ else if (object.contains("Director")) {
 throw std::invalid_argument("Unknown media type or missing required fields in JSON.");
 }
 
-QPixmap JsonStorage::getImageFromJson(const QJsonObject & object) {
-    if (object.contains("Image")) {
-        QString base64Image = object.value("Image").toString();
-        QByteArray byteArray = QByteArray::fromBase64(base64Image.toLatin1());
-        QPixmap image;
-        if (image.loadFromData(byteArray)) {
-            return image;
-        } else {
-            return QPixmap();
-        }
-    }
-    return QPixmap();
-}
+// QPixmap JsonStorage::getImageFromJson(const QJsonObject & object) {
+//     if (object.contains("Image")) {
+//         QString base64Image = object.value("Image").toString();
+//         QByteArray byteArray = QByteArray::fromBase64(base64Image.toLatin1());
+//         QPixmap image;
+//         if (image.loadFromData(byteArray)) {
+//             return image;
+//         } else {
+//             return QPixmap();
+//         }
+//     }
+//     return QPixmap();
+// }

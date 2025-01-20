@@ -7,6 +7,7 @@
 #include "Src/Media/bookmedia.h"
 #include "Src/Media/articlemedia.h"
 #include "Src/Media/moviemedia.h"
+#include "Src/Converter/converter.h"
 
 EditMedia::EditMedia(QWidget *parent)
     : QWidget(parent)
@@ -14,7 +15,7 @@ EditMedia::EditMedia(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ui->comboBox,qOverload<int>(&QComboBox::currentIndexChanged) ,this , &EditMedia::changeView);
-    connect(ui->confirmationBtns, &QDialogButtonBox::rejected ,this, &EditMedia::close );
+    connect(ui->confirmationBtns, &QDialogButtonBox::rejected ,this, &EditMedia::close);
     connect(ui->uploadBtn, &QPushButton::clicked ,this, &EditMedia::uploadImage);
     connect(ui->reuploadBtn, &QPushButton::clicked ,this, &EditMedia::uploadImage);
     connect(ui->confirmationBtns, &QDialogButtonBox::accepted ,this, &EditMedia::onApplyButtonClicked);
@@ -62,13 +63,16 @@ void EditMedia::onApplyButtonClicked() {
     unsigned int year = ui->year->value();
     QPixmap picture = ui->imageLabel->pixmap();
 
+    std::string imagePath = Converter::convertPixmapToPath(picture);
+
+
     if (ui->comboBox->currentIndex() == 0){// Book
             media = new BookMedia(
             name.toStdString(),
             year,
             author.toStdString(),
             description.toStdString(),
-            picture,
+            imagePath,
             ui->pages->text().toUInt(),
             (ui->publisher->text()).toStdString(),
             (ui->genre->text()).toStdString());
@@ -82,7 +86,7 @@ void EditMedia::onApplyButtonClicked() {
             year,
             author.toStdString(),
             description.toStdString(),
-            picture,
+            imagePath,
             ui->volume->value(),
             ui->issue->value(),
             (ui->journal->text()).toStdString()
@@ -97,7 +101,7 @@ void EditMedia::onApplyButtonClicked() {
             year,
             author.toStdString(),
             description.toStdString(),
-            picture,
+            imagePath,
             (ui->length->time().minute() + ( ui->length->time().hour() * 60 )),
             (ui->director->text()).toStdString(),
             (ui->studio->text()).toStdString());
@@ -120,7 +124,7 @@ void EditMedia::onApplyEditButtonClicked(ConcreteVisitor* visitor) {
     ui->name->setText(QString::fromStdString(attributes.name));
     ui->year->setValue(std::stoi(attributes.year));
     ui->author->setText(QString::fromStdString(attributes.author));
-    ui->imageLabel->setPixmap(attributes.img);
+    ui->imageLabel->setPixmap (Converter::convertPathToPixmap(attributes.img));
 
     if (attributes.details.find("Pages") != attributes.details.end()) {
         ui->comboBox->setCurrentIndex(0);

@@ -53,8 +53,10 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../../Src/Container/container.cpp \
+		../../Src/Converter/converter.cpp \
 		../../Src/Json/jsonstorage.cpp \
 		../../Src/Manager/mediafilemanager.cpp \
+		../../Src/Manager/mediamanager.cpp \
 		../../Src/Media/abstractmedia.cpp \
 		../../Src/Media/articlemedia.cpp \
 		../../Src/Media/bookmedia.cpp \
@@ -76,8 +78,10 @@ SOURCES       = ../../Src/Container/container.cpp \
 		moc_mediawidget.cpp \
 		moc_searchbar.cpp
 OBJECTS       = container.o \
+		converter.o \
 		jsonstorage.o \
 		mediafilemanager.o \
+		mediamanager.o \
 		abstractmedia.o \
 		articlemedia.o \
 		bookmedia.o \
@@ -346,8 +350,10 @@ DIST          = ProgettoMedia.app/Contents/Info.plist \
 		/Qt/6.8.1/macos/mkspecs/features/yacc.prf \
 		/Qt/6.8.1/macos/mkspecs/features/lex.prf \
 		../../../../ProgettoMedia.pro ../../Src/Container/container.h \
+		../../Src/Converter/converter.h \
 		../../Src/Json/jsonstorage.h \
 		../../Src/Manager/mediafilemanager.h \
+		../../Src/Manager/mediamanager.h \
 		../../Src/Media/abstractmedia.h \
 		../../Src/Media/articlemedia.h \
 		../../Src/Media/bookmedia.h \
@@ -361,8 +367,10 @@ DIST          = ProgettoMedia.app/Contents/Info.plist \
 		../../Src/Visitor/concretevisitor.h \
 		../../Src/Visitor/jsonvisitor.h \
 		../../Src/Visitor/mediavisitor.h ../../Src/Container/container.cpp \
+		../../Src/Converter/converter.cpp \
 		../../Src/Json/jsonstorage.cpp \
 		../../Src/Manager/mediafilemanager.cpp \
+		../../Src/Manager/mediamanager.cpp \
 		../../Src/Media/abstractmedia.cpp \
 		../../Src/Media/articlemedia.cpp \
 		../../Src/Media/bookmedia.cpp \
@@ -925,8 +933,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Src/Container/container.h ../../Src/Json/jsonstorage.h ../../Src/Manager/mediafilemanager.h ../../Src/Media/abstractmedia.h ../../Src/Media/articlemedia.h ../../Src/Media/bookmedia.h ../../Src/Media/moviemedia.h ../../Src/View/editmedia.h ../../Src/View/listwidgetelement.h ../../Src/View/mainwindow.h ../../Src/View/medialistwidget.h ../../Src/View/mediawidget.h ../../Src/View/searchbar.h ../../Src/Visitor/concretevisitor.h ../../Src/Visitor/jsonvisitor.h ../../Src/Visitor/mediavisitor.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Src/Container/container.cpp ../../Src/Json/jsonstorage.cpp ../../Src/Manager/mediafilemanager.cpp ../../Src/Media/abstractmedia.cpp ../../Src/Media/articlemedia.cpp ../../Src/Media/bookmedia.cpp ../../Src/Media/moviemedia.cpp ../../Src/View/editmedia.cpp ../../Src/View/listwidgetelement.cpp ../../Src/View/mainwindow.cpp ../../Src/View/medialistwidget.cpp ../../Src/View/mediawidget.cpp ../../Src/View/searchbar.cpp ../../Src/Visitor/concretevisitor.cpp ../../Src/Visitor/jsonvisitor.cpp ../../Src/Visitor/mediavisitor.cpp ../../main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Src/Container/container.h ../../Src/Converter/converter.h ../../Src/Json/jsonstorage.h ../../Src/Manager/mediafilemanager.h ../../Src/Manager/mediamanager.h ../../Src/Media/abstractmedia.h ../../Src/Media/articlemedia.h ../../Src/Media/bookmedia.h ../../Src/Media/moviemedia.h ../../Src/View/editmedia.h ../../Src/View/listwidgetelement.h ../../Src/View/mainwindow.h ../../Src/View/medialistwidget.h ../../Src/View/mediawidget.h ../../Src/View/searchbar.h ../../Src/Visitor/concretevisitor.h ../../Src/Visitor/jsonvisitor.h ../../Src/Visitor/mediavisitor.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Src/Container/container.cpp ../../Src/Converter/converter.cpp ../../Src/Json/jsonstorage.cpp ../../Src/Manager/mediafilemanager.cpp ../../Src/Manager/mediamanager.cpp ../../Src/Media/abstractmedia.cpp ../../Src/Media/articlemedia.cpp ../../Src/Media/bookmedia.cpp ../../Src/Media/moviemedia.cpp ../../Src/View/editmedia.cpp ../../Src/View/listwidgetelement.cpp ../../Src/View/mainwindow.cpp ../../Src/View/medialistwidget.cpp ../../Src/View/mediawidget.cpp ../../Src/View/searchbar.cpp ../../Src/Visitor/concretevisitor.cpp ../../Src/Visitor/jsonvisitor.cpp ../../Src/Visitor/mediavisitor.cpp ../../main.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Src/View/editmedia.ui ../../Src/View/listwidgetelement.ui ../../Src/View/mainwindow.ui ../../Src/View/medialistwidget.ui ../../Src/View/mediawidget.ui ../../Src/View/searchbar.ui $(DISTDIR)/
 
 
@@ -1121,6 +1129,7 @@ moc_mainwindow.cpp: ../../Src/View/mainwindow.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwhatsthis.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidgetaction.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwizard.h \
+		../../Src/Manager/mediamanager.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/6.8.1/macos/libexec/moc
@@ -1326,6 +1335,13 @@ container.o: ../../Src/Container/container.cpp ../../Src/Container/container.h \
 		../../Src/Visitor/mediavisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o container.o ../../Src/Container/container.cpp
 
+converter.o: ../../Src/Converter/converter.cpp ../../Src/Converter/converter.h \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qstring.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o converter.o ../../Src/Converter/converter.cpp
+
 jsonstorage.o: ../../Src/Json/jsonstorage.cpp ../../Src/Json/jsonstorage.h \
 		../../Src/Media/abstractmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
@@ -1339,7 +1355,7 @@ jsonstorage.o: ../../Src/Json/jsonstorage.cpp ../../Src/Json/jsonstorage.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qjsonobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o jsonstorage.o ../../Src/Json/jsonstorage.cpp
 
-mediafilemanager.o: ../../Src/Manager/mediafilemanager.cpp ../../Src/Manager/MediaFileManager.h \
+mediafilemanager.o: ../../Src/Manager/mediafilemanager.cpp ../../Src/Manager/mediafilemanager.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QJsonArray \
@@ -1350,13 +1366,24 @@ mediafilemanager.o: ../../Src/Manager/mediafilemanager.cpp ../../Src/Manager/Med
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Src/Container/container.h \
 		../../Src/Json/jsonstorage.h \
 		../../Src/Media/abstractmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
-		../../Src/Visitor/mediavisitor.h \
-		../../Src/Container/container.h
+		../../Src/Visitor/mediavisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mediafilemanager.o ../../Src/Manager/mediafilemanager.cpp
+
+mediamanager.o: ../../Src/Manager/mediamanager.cpp ../../Src/Manager/mediamanager.h \
+		../../Src/Container/container.h \
+		../../Src/Visitor/concretevisitor.h \
+		../../Src/Visitor/mediavisitor.h \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../../Qt/6.8.1/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Src/Media/abstractmedia.h \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qlabel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mediamanager.o ../../Src/Manager/mediamanager.cpp
 
 abstractmedia.o: ../../Src/Media/abstractmedia.cpp ../../Src/Media/abstractmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
@@ -1405,7 +1432,10 @@ editmedia.o: ../../Src/View/editmedia.cpp ../../Src/View/editmedia.h \
 		../../Src/Container/container.h \
 		../../Src/Media/bookmedia.h \
 		../../Src/Media/articlemedia.h \
-		../../Src/Media/moviemedia.h
+		../../Src/Media/moviemedia.h \
+		../../Src/Converter/converter.h \
+		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o editmedia.o ../../Src/View/editmedia.cpp
 
 listwidgetelement.o: ../../Src/View/listwidgetelement.cpp ../../Src/View/listwidgetelement.h \
@@ -1549,14 +1579,14 @@ mainwindow.o: ../../Src/View/mainwindow.cpp ../../Src/View/mainwindow.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwhatsthis.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidgetaction.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwizard.h \
+		../../Src/Manager/mediamanager.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qstring.h \
 		ui_mainwindow.h \
 		../../Src/View/searchbar.h \
-		../../Src/Json/jsonstorage.h \
+		../../Src/View/editmedia.h \
 		../../Src/Media/abstractmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QLabel \
-		../../Src/View/editmedia.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		../../Src/Manager/mediafilemanager.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QJsonArray \
@@ -1883,6 +1913,7 @@ main.o: ../../main.cpp ../../Src/View/mainwindow.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwhatsthis.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwidgetaction.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/qwizard.h \
+		../../Src/Manager/mediamanager.h \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/6.8.1/macos/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/6.8.1/macos/lib/QtWidgets.framework/Headers/QApplication

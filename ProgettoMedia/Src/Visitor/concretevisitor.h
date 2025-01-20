@@ -11,7 +11,7 @@ public:
         std::string name;
         std::string year;
         std::string author;
-        QPixmap img;
+        std::string img;
         std::unordered_map<std::string, std::string> details;
     };
 private:

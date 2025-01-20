@@ -10,8 +10,10 @@ CONFIG += c++17
 
 SOURCES += \
     Src/Container/container.cpp \
+    Src/Converter/converter.cpp \
     Src/Json/jsonstorage.cpp \
     Src/Manager/mediafilemanager.cpp \
+    Src/Manager/mediamanager.cpp \
     Src/Media/abstractmedia.cpp \
     Src/Media/articlemedia.cpp \
     Src/Media/bookmedia.cpp \
@@ -29,8 +31,10 @@ SOURCES += \
 
 HEADERS += \
     Src/Container/container.h \
+    Src/Converter/converter.h \
     Src/Json/jsonstorage.h \
     Src/Manager/mediafilemanager.h \
+    Src/Manager/mediamanager.h \
     Src/Media/abstractmedia.h \
     Src/Media/articlemedia.h \
     Src/Media/bookmedia.h \

@@ -19,13 +19,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     mediaWidget = new MediaWidget();
 
+    mediaManager = new MediaManager();
+
     //editMediaAdd = new EditMedia();
 
     SearchBar* searchbar = new SearchBar();
 
     visitor = new ConcreteVisitor();
-
-
 
     list = new MediaListWidget(this);
 
@@ -79,9 +79,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
-void MainWindow::saveMedia(){
+void MainWindow::saveMedia(){// va bene come separazione
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save Media"), "", tr("JSON Files (*.json);;All Files (*)"));
     if (fileName.isEmpty()) {
@@ -90,7 +88,7 @@ void MainWindow::saveMedia(){
     MediaFileManager::saveMedia(fileName, container);
 }
 
-void MainWindow::openMedia(){
+void MainWindow::openMedia(){// va bene come separazione
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open Media File"), "", tr("JSON Files (*.json);;All Files (*)"));
     if (fileName.isEmpty()) {
         return;
@@ -103,52 +101,40 @@ void MainWindow::openMedia(){
 
 }
 
-
-
-void MainWindow::showEditOnAdd() {
-    EditMedia* editMediaAdd = new EditMedia();
+void MainWindow::showEditOnAdd() {// va bene come separazione
+    EditMedia* editMediaAdd = new EditMedia();// capire come fare per la memoria
 
     connect(editMediaAdd, &EditMedia::onApply, this, &MainWindow::onMediaCreated);
     editMediaAdd->showEditWindow();
-}
-void MainWindow::showEdit(const std::string& name) {
 
+
+}
+void MainWindow::showEdit(const std::string& name)// va bene come separazione
+{
     EditMedia* editMediaEdit = new EditMedia();
     ConcreteVisitor* visitor = new ConcreteVisitor();
 
-    for (auto it = container->begin(); it != container->end();) {
-        if ((*it)->getName() == name) {
-            (*it)->accept(visitor);
+    if (mediaManager->editMedia(container, name, visitor)) {
+        connect(editMediaEdit, &EditMedia::onApply, this, &MainWindow::onMediaEdited);
+        editMediaEdit->onApplyEditButtonClicked(visitor);
+        editMediaEdit->showEditWindow();
 
-            editMediaEdit->onApplyEditButtonClicked(visitor);
-            connect(editMediaEdit, &EditMedia::onApply, this, &MainWindow::onMediaEdited);
-            editMediaEdit->showEditWindow();
-
-            mediaWidget->hide();
-
-            container->remove(*it);
-            list->refresh();
-            list->showWidgets(container, visitor);
-            delete visitor;
-
-            break;
-        } else {
-            ++it;
-        }
+        mediaWidget->hide();
+        refreshList();
+    } else {
+        showError("Media not found");
     }
+
+    delete visitor;
 }
 
-void MainWindow::onMediaCreated(AbstractMedia* media) {
+void MainWindow::onMediaCreated(AbstractMedia* media) {// va bene come separazione
 
-    for(auto it = container->begin(); it != container->end(); ++it){
-        if(media->getName()==(*it)->getName()){
-            showError("Name already taken");
-            return;
-        }
+    if (mediaManager->addMedia(container, media)) {
+        refreshList();
+    } else {
+        showError("Name already taken");
     }
-    container->add(media);
-    list->refresh();//importante per non mostrare duplicati se aggiungo nome uguale e poi nome nuovo
-    list->showWidgets(container, visitor);
 }
 void MainWindow::onMediaEdited(AbstractMedia* media) {
     container->add(media);
@@ -156,36 +142,28 @@ void MainWindow::onMediaEdited(AbstractMedia* media) {
     list->showWidgets(container, visitor);
 }
 
-void MainWindow::onMediaDeleted(const std::string& name){
-
-    if(showQuestion()){
-    for (auto it = container->begin(); it != container->end();) {
-        if ((*it)->getName() == name) {
-            container->remove(*it);
-            list->refresh();
-            list->showWidgets(container, visitor);
-            mediaWidget->hide();
-            break;
-        } else {
-            ++it;
-        }
-    }}
-}
-
-void MainWindow::showMediaWidget(const std::string& name){
+void MainWindow::showMediaWidget(const std::string& name){// va bene come separazione
     ConcreteVisitor* visitor = new ConcreteVisitor();
 
-    for(auto it = container->begin(); it != container->end(); ++it){
-        if(name==(*it)->getName()){
-            (*it)->accept(visitor);
-            mediaWidget->showMedia(visitor);
-            checkWidget(mediaWidget);
-            mediaWidget->show();
-            delete visitor;
-        }
+    const AbstractMedia* media = mediaManager->findMediaByName(name, container);
+    (media)->accept(visitor);
+    mediaWidget->showMedia(visitor);
+    checkWidget(mediaWidget);
+    mediaWidget->show();
+    delete visitor;
+}
+void MainWindow::onMediaDeleted(const std::string& name){// va bene come separazione
 
+    if (showQuestion()) {
+        if (mediaManager->deleteMedia(container, name)) {
+            refreshList();
+            mediaWidget->hide();
+        } else {
+            showError("Error deleting media");
+        }
     }
 }
+
 
 
 
@@ -224,10 +202,15 @@ bool MainWindow::showQuestion() { // va bene come separazione
     }
 }
 
-void MainWindow::clearMedias() { // va bene come separazione
-    // Safe way to clear container by iterating backwards
-    container->clear();
+void MainWindow::clearMedias() {// va bene come separazione
+
+    MediaFileManager::clearMedia(container);
     mediaWidget->hide();
+    list->refresh();
+    list->showWidgets(container, visitor);
+}
+
+void MainWindow::refreshList(){
     list->refresh();
     list->showWidgets(container, visitor);
 }

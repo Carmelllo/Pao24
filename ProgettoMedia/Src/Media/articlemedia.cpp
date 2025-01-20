@@ -5,7 +5,7 @@ ArticleMedia::ArticleMedia(
     const unsigned int & y,
     const std::string & a,
     const std::string & d,
-    const QPixmap& img,
+    const std::string& img,
     const unsigned int & v,
     const unsigned int & i,
     const std::string & j) : AbstractMedia(n,y,a,d,img),volume(v) , issue(i) , journal(j) {}

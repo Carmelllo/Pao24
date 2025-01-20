@@ -7,6 +7,7 @@
 #include "medialistwidget.h"
 #include "Src/Visitor/concretevisitor.h"
 #include "mediawidget.h"
+#include "Src/Manager/mediamanager.h"
 #include <QString>
 
 QT_BEGIN_NAMESPACE
@@ -28,7 +29,7 @@ public:
     bool showQuestion();
     void onMediaEdited(AbstractMedia* media);
     void clearMedias();
-
+    void refreshList();
 public slots:
     void showEditOnAdd();
     void showEdit(const std::string& name);
@@ -43,10 +44,11 @@ private:
     QSplitter *VSplitter;
     Container* container;
     Container* searchContainer;
-    //EditMedia* editMediaEdit;
+    MediaManager* mediaManager;
     ConcreteVisitor* visitor;
     MediaWidget* mediaWidget;
     MediaListWidget* list;
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H

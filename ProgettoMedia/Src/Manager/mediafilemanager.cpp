@@ -8,7 +8,7 @@ void MediaFileManager::saveMedia(const QString& fileName, Container* container) 
     JsonStorage jsonStorage;
     QJsonArray mediaArray;
     for (auto it = container->begin(); it != container->end(); ++it) {
-        mediaArray.append(jsonStorage.turnToObject(**it));  // Add each media to the JSON array
+        mediaArray.append(jsonStorage.turnToObject(**it));
     }
     QJsonDocument doc(mediaArray);
     QFile saveFile(fileName);
@@ -21,6 +21,13 @@ void MediaFileManager::saveMedia(const QString& fileName, Container* container) 
 
     QMessageBox::information(nullptr, QObject::tr("Success"), QObject::tr("Your media has been saved!"));
 }
+
+void MediaFileManager::clearMedia(Container* container) {
+    if (container) {
+        container->clear();
+    }
+}
+
 
 bool MediaFileManager::openMedia(const QString& fileName, Container* container) {
     QFile loadFile(fileName);
@@ -37,7 +44,7 @@ bool MediaFileManager::openMedia(const QString& fileName, Container* container) 
     }
     QJsonArray mediaArray = doc.array();
 
-    container->clear();  // Clear existing media
+    container->clear();
 
     for (const QJsonValue &value : mediaArray) {
         if (value.isObject()) {

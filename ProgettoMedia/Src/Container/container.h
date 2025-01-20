@@ -2,6 +2,7 @@
 #define CONTAINER_H
 
 #include <vector>
+#include <string>
 
 class AbstractMedia;
 class ArticleMedia;

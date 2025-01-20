@@ -1,6 +1,6 @@
 #include "mediawidget.h"
 #include "ui_mediawidget.h"
-
+#include "Src/Converter/converter.h"
 MediaWidget::MediaWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MediaWidget)
@@ -15,7 +15,7 @@ MediaWidget::~MediaWidget()
 }
 
 
-void MediaWidget::showMedia(ConcreteVisitor* visitor) {
+void MediaWidget::showMedia(ConcreteVisitor* visitor) {// va bene come separazione
 
     clearUI(ui->Labels);
     clearUI(ui->ImageLayout);
@@ -36,7 +36,7 @@ void MediaWidget::showMedia(ConcreteVisitor* visitor) {
     buttonsLayout->addWidget(remove);
     QLabel* image = new QLabel();
     image->setFixedSize(170, 210);
-    image->setPixmap(attributes.img);
+    image->setPixmap(Converter::convertPathToPixmap(attributes.img));
     image->setScaledContents(true);
 
     ui->Labels->addWidget(name);
@@ -54,26 +54,24 @@ void MediaWidget::showMedia(ConcreteVisitor* visitor) {
     connect(edit,&QPushButton::clicked ,this , &MediaWidget::onEditClicked);
 
 }
-void MediaWidget::onRemoveClicked(){
+void MediaWidget::onRemoveClicked(){// va bene come separazione
     emit onRemove(widgetName);
 }
-void MediaWidget::onEditClicked(){
+void MediaWidget::onEditClicked(){// va bene come separazione
     emit onEdit(widgetName);
 }
 
 
-void MediaWidget::clearUI(QLayout* layout) {
+void MediaWidget::clearUI(QLayout* layout) {// va bene come separazione
     if (!layout) return;
 
     while (QLayoutItem* item = layout->takeAt(0)) {
         if (QWidget* widget = item->widget()) {
-            // If it's a widget, remove it from the layout and schedule for deletion
             widget->setParent(nullptr);
             widget->deleteLater();
         } else if (QLayout* childLayout = item->layout()) {
-            // If it's a nested layout, recursively clear it
             clearUI(childLayout);
         }
-        delete item; // Delete the layout item
+        delete item;
     }
 }

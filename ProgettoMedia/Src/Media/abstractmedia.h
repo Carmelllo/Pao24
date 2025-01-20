@@ -16,7 +16,7 @@ private:
     unsigned int year;
     std::string author;
     std::string description;
-    QPixmap image;
+    std::string imagePath;
 
 public:
     AbstractMedia(
@@ -24,7 +24,7 @@ public:
         const unsigned int & = 2025,
         const std::string & ="",
         const std::string & ="",
-        const QPixmap& = QPixmap(":/Images/Src/Assets/default.png"));
+        const std::string& =":/Images/Src/Assets/default.png");
 
     virtual ~AbstractMedia() = 0;
 
@@ -33,7 +33,7 @@ public:
     unsigned int getYear() const;
     std::string getAuthor() const;
     std::string getDescription() const;
-    QPixmap getImage() const;
+    std::string getImage() const;
     //Sets
     void setName(const std::string &);
     void setYear(const int &);
