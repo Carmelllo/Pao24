@@ -4,5 +4,6 @@
         <file>Src/Assets/Article.png</file>
         <file>Src/Assets/Book.png</file>
         <file>Src/Assets/Movie.png</file>
+        <file>Src/Assets/search-icon.png</file>
     </qresource>
 </RCC>
