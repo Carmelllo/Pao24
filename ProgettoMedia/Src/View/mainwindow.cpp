@@ -82,6 +82,11 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete mediaWidget;
+    delete mediaManager;
+    delete visitor;
+    delete container;
+    delete searchContainer;
 }
 
 void MainWindow::saveMedia(){
