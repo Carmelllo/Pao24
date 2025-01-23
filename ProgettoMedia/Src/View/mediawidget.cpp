@@ -15,7 +15,7 @@ MediaWidget::~MediaWidget()
 }
 
 
-void MediaWidget::showMedia(ConcreteVisitor* visitor) {// va bene come separazione
+void MediaWidget::showMedia(ConcreteVisitor* visitor) {
 
     clearUI(ui->Labels);
     clearUI(ui->ImageLayout);
@@ -54,15 +54,15 @@ void MediaWidget::showMedia(ConcreteVisitor* visitor) {// va bene come separazio
     connect(edit,&QPushButton::clicked ,this , &MediaWidget::onEditClicked);
 
 }
-void MediaWidget::onRemoveClicked(){// va bene come separazione
+void MediaWidget::onRemoveClicked(){
     emit onRemove(widgetName);
 }
-void MediaWidget::onEditClicked(){// va bene come separazione
+void MediaWidget::onEditClicked(){
     emit onEdit(widgetName);
 }
 
 
-void MediaWidget::clearUI(QLayout* layout) {// va bene come separazione
+void MediaWidget::clearUI(QLayout* layout) {
     if (!layout) return;
 
     while (QLayoutItem* item = layout->takeAt(0)) {

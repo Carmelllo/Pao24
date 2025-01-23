@@ -9,8 +9,6 @@ public:
     JsonStorage();
     QJsonObject turnToObject(const AbstractMedia &);
     static AbstractMedia* turnToMedia(const QJsonObject &);
-    static QPixmap getImageFromJson(const QJsonObject &);
-
 };
 
 #endif // JSONSTORAGE_H

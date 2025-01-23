@@ -67,6 +67,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="maxLength">
+        <number>25</number>
+       </property>
        <property name="placeholderText">
         <string>Type media name</string>
        </property>
@@ -605,8 +608,14 @@
          <height>100</height>
         </size>
        </property>
+       <property name="inputMethodHints">
+        <set>Qt::InputMethodHint::ImhNone</set>
+       </property>
        <property name="lineWrapMode">
-        <enum>QTextEdit::LineWrapMode::FixedPixelWidth</enum>
+        <enum>QTextEdit::LineWrapMode::WidgetWidth</enum>
+       </property>
+       <property name="lineWrapColumnOrWidth">
+        <number>0</number>
        </property>
        <property name="placeholderText">
         <string>A brief description...</string>
@@ -643,7 +652,7 @@
       <enum>QFrame::Shadow::Plain</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page_4">
       <layout class="QVBoxLayout" name="verticalLayout_3">

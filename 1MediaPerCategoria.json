@@ -1,0 +1,32 @@
+[
+    {
+        "Author": "Miguel de Cervantes",
+        "Description": "A delusional knight-errant on a comical quest for chivalry.",
+        "Genre": "Novel",
+        "Image": "temp/image_{c425ad64-3271-4389-8550-68cf2935dfbc}.png",
+        "Name": "Don Quixote",
+        "Pages": 750,
+        "Publisher": "Francisco de Robles",
+        "Year": 1605
+    },
+    {
+        "Author": "Martin Scorsese",
+        "Description": "Ambitious broker's rise and fall amidst greed and excess.",
+        "Director": "Martin Scorsese",
+        "Image": "temp/image_{7e361313-e4df-4dd4-ac57-12b827da4c00}.png",
+        "Length": 180,
+        "Name": "The Wolf of Wall Street",
+        "Studio": "Appian Way Productions",
+        "Year": 2013
+    },
+    {
+        "Author": "Dr. Emily J. Carter, PhD",
+        "Description": "The focus of the study: The impact of social media on adolescent mental health.\n",
+        "Image": ":/Images/Src/Assets/default.png",
+        "Issue": 3,
+        "Journal": "Journal of Adolescent Health",
+        "Name": "Social Media: Teen Health",
+        "Volume": 75,
+        "Year": 2024
+    }
+]

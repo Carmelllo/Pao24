@@ -17,7 +17,7 @@ public:
     explicit EditMedia(QWidget *parent = nullptr);
     ~EditMedia();
     void showEditWindow();
-    void onApplyEditButtonClicked(ConcreteVisitor* visitor);
+    void showEditMedia(ConcreteVisitor* visitor);
 signals:
     void onApply(AbstractMedia *);
 
@@ -25,6 +25,7 @@ private slots:
     void onApplyButtonClicked();
     void changeView(int);
     void uploadImage();
+
 
 private:
     Ui::EditMedia *ui;

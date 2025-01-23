@@ -20,13 +20,13 @@ MediaListWidget::~MediaListWidget()
     delete ui;
 }
 
-void MediaListWidget::onAddButtonClicked() {// va bene come separazione
+void MediaListWidget::onAddButtonClicked() {
     emit addClick();
 }
 
 
 
-void MediaListWidget::addWidget(const QPixmap& img, const std::string &s, const std::string &d){// va bene come separazione
+void MediaListWidget::addWidget(const QPixmap& img, const std::string &s, const std::string &d){
     bool found = false;
     for (auto* it : listElementWidgets) {
         if (it->getName().toStdString() == s) {
@@ -61,7 +61,7 @@ void MediaListWidget::showWidgets(Container * container, ConcreteVisitor * visit
     }
 }
 
-void MediaListWidget::refresh(){// va bene come separazione
+void MediaListWidget::refresh(){
 
     for (int i = 0; i < ui->listWidget->count(); ++i) {
         QListWidgetItem* item = ui->listWidget->takeItem(i);
@@ -74,7 +74,7 @@ void MediaListWidget::refresh(){// va bene come separazione
     listElementWidgets.clear();
 }
 
-void MediaListWidget::receiveWidgetName(const std::string& name)// va bene come separazione
+void MediaListWidget::receiveWidgetName(const std::string& name)
 {
     emit sendWidgetName(name);
 }

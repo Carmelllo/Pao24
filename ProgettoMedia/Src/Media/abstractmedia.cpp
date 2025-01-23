@@ -47,7 +47,7 @@ void AbstractMedia::setName(const std::string &n){
 
 }
 
-void AbstractMedia::setYear(const int &y){
+void AbstractMedia::setYear(const unsigned int &y){
 
     this->year = y;
 
@@ -57,4 +57,14 @@ void AbstractMedia::setAuthor(const std::string &a){
 
     this->author = a;
 
+}
+
+void AbstractMedia::setDescription(const std::string &d){
+
+    this->description = d;
+
+}
+void AbstractMedia::setImage(const std::string &i){
+
+    this->imagePath = i;
 }

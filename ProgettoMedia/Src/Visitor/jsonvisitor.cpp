@@ -17,14 +17,6 @@ void JsonVisitor::visit(const ArticleMedia * media){
     article.insert("Issue", QJsonValue::fromVariant(media->getIssue()));
     article.insert("Journal", QString::fromStdString(media->getJournal()));
     article.insert("Image",QString::fromStdString(media->getImage()));
-    // if (!image.isNull()) {
-    //     QByteArray byteArray;
-    //     QBuffer buffer(&byteArray);
-    //     buffer.open(QIODevice::WriteOnly);
-    //     image.save(&buffer, "PNG");
-    //     QString base64Image = QString::fromLatin1(byteArray.toBase64());
-    //     article.insert("Image", QJsonValue(base64Image));
-    // }
 
     object = article;
 
@@ -41,15 +33,6 @@ void JsonVisitor::visit(const BookMedia * media){
     book.insert("Genre", QString::fromStdString(media->getGenre()));
     book.insert("Image",QString::fromStdString(media->getImage()));
 
-    // if (!image.isNull()) {
-    //     QByteArray byteArray;
-    //     QBuffer buffer(&byteArray);
-    //     buffer.open(QIODevice::WriteOnly);
-    //     image.save(&buffer, "PNG");
-    //     QString base64Image = QString::fromLatin1(byteArray.toBase64());
-    //     book.insert("Image", QJsonValue(base64Image));
-    // }
-
     object = book;
 
 
@@ -64,14 +47,6 @@ void JsonVisitor::visit(const MovieMedia * media){
     movie.insert("Director", QString::fromStdString(media->getDirector()));
     movie.insert("Studio", QString::fromStdString(media->getStudio()));
     movie.insert("Image",QString::fromStdString(media->getImage()));
-    // if (!image.isNull()) {
-    //     QByteArray byteArray;
-    //     QBuffer buffer(&byteArray);
-    //     buffer.open(QIODevice::WriteOnly);
-    //     image.save(&buffer, "PNG");
-    //     QString base64Image = QString::fromLatin1(byteArray.toBase64());
-    //     movie.insert("Image", QJsonValue(base64Image));
-    // }
 
     object = movie;
 

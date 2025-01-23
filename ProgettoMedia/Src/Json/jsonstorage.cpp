@@ -14,7 +14,7 @@ QJsonObject JsonStorage::turnToObject(const AbstractMedia & media){
 
 AbstractMedia* JsonStorage::turnToMedia(const QJsonObject & object){
     if (object.contains("Publisher")) {
-        // It's a Book
+        // Libro
         return new BookMedia(
             object.value("Name").toString().toStdString(),
             object.value("Year").toInt(),
@@ -27,7 +27,7 @@ AbstractMedia* JsonStorage::turnToMedia(const QJsonObject & object){
             );
     }
     else if (object.contains("Journal")) {
-        // It's an Article
+        // Articolo
         return new ArticleMedia(
             object.value("Name").toString().toStdString(),
             object.value("Year").toInt(),
@@ -41,7 +41,7 @@ AbstractMedia* JsonStorage::turnToMedia(const QJsonObject & object){
     }
 
 else if (object.contains("Director")) {
-    // It's likely a Movie
+    // Film
     return new MovieMedia(
         object.value("Name").toString().toStdString(),
         object.value("Year").toInt(),
@@ -57,16 +57,3 @@ else if (object.contains("Director")) {
 throw std::invalid_argument("Unknown media type or missing required fields in JSON.");
 }
 
-// QPixmap JsonStorage::getImageFromJson(const QJsonObject & object) {
-//     if (object.contains("Image")) {
-//         QString base64Image = object.value("Image").toString();
-//         QByteArray byteArray = QByteArray::fromBase64(base64Image.toLatin1());
-//         QPixmap image;
-//         if (image.loadFromData(byteArray)) {
-//             return image;
-//         } else {
-//             return QPixmap();
-//         }
-//     }
-//     return QPixmap();
-// }

@@ -36,8 +36,10 @@ public:
     std::string getImage() const;
     //Sets
     void setName(const std::string &);
-    void setYear(const int &);
+    void setYear(const unsigned int &);
     void setAuthor(const std::string &);
+    void setDescription(const std::string &);
+    void setImage(const std::string &);
     //Visitor
     virtual void accept(MediaVisitor *) const = 0;
 

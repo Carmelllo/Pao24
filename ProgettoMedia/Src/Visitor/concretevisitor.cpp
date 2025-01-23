@@ -47,6 +47,7 @@ void ConcreteVisitor::setAttributes(const ArticleMedia * media){
     attributes.name = media->getName() ;
     attributes.year = std::to_string( media->getYear() );
     attributes.author = media->getAuthor() ;
+    attributes.description = media->getDescription() ;
     attributes.img = media->getImage();
     attributes.details["Issue"] = std::to_string(media->getIssue());
     attributes.details["Volume"] = std::to_string(media->getVolume());
@@ -55,7 +56,8 @@ void ConcreteVisitor::setAttributes(const ArticleMedia * media){
 void ConcreteVisitor::setAttributes(const BookMedia * media){
     attributes.name = media->getName() ;
     attributes.year = std::to_string( media->getYear() );
-    attributes.author = media->getAuthor() ;
+    attributes.author = media->getAuthor();
+    attributes.description = media->getDescription() ;
     attributes.img = media->getImage();
     attributes.details["Pages"] = std::to_string(media->getPages());
     attributes.details["Publisher"] = media->getPublisher();
@@ -65,6 +67,7 @@ void ConcreteVisitor::setAttributes(const MovieMedia * media){
     attributes.name = media->getName() ;
     attributes.year = std::to_string( media->getYear() );
     attributes.author = media->getAuthor() ;
+    attributes.description = media->getDescription() ;
     attributes.img = media->getImage();
     attributes.details["Length"] = (std::to_string(media->getLength()) + " minutes");
     attributes.details["Director"] = media->getDirector();

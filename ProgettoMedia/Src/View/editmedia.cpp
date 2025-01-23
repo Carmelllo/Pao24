@@ -15,11 +15,10 @@ EditMedia::EditMedia(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ui->comboBox,qOverload<int>(&QComboBox::currentIndexChanged) ,this , &EditMedia::changeView);
-    connect(ui->confirmationBtns, &QDialogButtonBox::rejected ,this, &EditMedia::close);
+    connect(ui->confirmationBtns, &QDialogButtonBox::rejected ,this, &EditMedia::close);//sistema upload
     connect(ui->uploadBtn, &QPushButton::clicked ,this, &EditMedia::uploadImage);
     connect(ui->reuploadBtn, &QPushButton::clicked ,this, &EditMedia::uploadImage);
     connect(ui->confirmationBtns, &QDialogButtonBox::accepted ,this, &EditMedia::onApplyButtonClicked);
-
 }
 
 EditMedia::~EditMedia()
@@ -66,7 +65,8 @@ void EditMedia::onApplyButtonClicked() {
     std::string imagePath = Converter::convertPixmapToPath(picture);
 
 
-    if (ui->comboBox->currentIndex() == 0){// Book
+
+    if (ui->comboBox->currentIndex() == 0){// Libro
             media = new BookMedia(
             name.toStdString(),
             year,
@@ -80,7 +80,7 @@ void EditMedia::onApplyButtonClicked() {
 
     }
 
-    if (ui->comboBox->currentIndex()== 1){// Article
+    if (ui->comboBox->currentIndex()== 1){// Articolo
         media = new ArticleMedia(
             name.toStdString(),
             year,
@@ -95,7 +95,7 @@ void EditMedia::onApplyButtonClicked() {
 
     }
 
-    if (ui->comboBox->currentIndex() == 2){// Movie
+    if (ui->comboBox->currentIndex() == 2){// Film
             media = new MovieMedia(
             name.toStdString(),
             year,
@@ -117,7 +117,7 @@ void EditMedia::onApplyButtonClicked() {
 
     close();
 }
-void EditMedia::onApplyEditButtonClicked(ConcreteVisitor* visitor) {
+void EditMedia::showEditMedia(ConcreteVisitor* visitor) {
     const ConcreteVisitor::Attributes& attributes = visitor->getAttributes();
 
 
@@ -125,6 +125,7 @@ void EditMedia::onApplyEditButtonClicked(ConcreteVisitor* visitor) {
     ui->year->setValue(std::stoi(attributes.year));
     ui->author->setText(QString::fromStdString(attributes.author));
     ui->imageLabel->setPixmap (Converter::convertPathToPixmap(attributes.img));
+    ui->description->setText(QString::fromStdString(attributes.description));
 
     if (attributes.details.find("Pages") != attributes.details.end()) {
         ui->comboBox->setCurrentIndex(0);
@@ -135,7 +136,7 @@ void EditMedia::onApplyEditButtonClicked(ConcreteVisitor* visitor) {
     }
 
 
-    if (ui->comboBox->currentIndex() == 0) {// Book
+    if (ui->comboBox->currentIndex() == 0) {// Libro
         auto pagesIter = attributes.details.find("Pages");
         auto publisherIter = attributes.details.find("Publisher");
         auto genreIter = attributes.details.find("Genre");
@@ -145,7 +146,7 @@ void EditMedia::onApplyEditButtonClicked(ConcreteVisitor* visitor) {
         ui->genre->setText((genreIter != attributes.details.end()) ? QString::fromStdString(genreIter->second) : "Unknown");
     }
 
-    if (ui->comboBox->currentIndex() == 1) {// Article
+    if (ui->comboBox->currentIndex() == 1) {// Articolo
         auto volumeIter = attributes.details.find("Volume");
         auto issueIter = attributes.details.find("Issue");
         auto journalIter = attributes.details.find("Journal");
@@ -155,7 +156,7 @@ void EditMedia::onApplyEditButtonClicked(ConcreteVisitor* visitor) {
         ui->journal->setText((journalIter != attributes.details.end()) ? QString::fromStdString(journalIter->second) : "Unknown");
     }
 
-    if (ui->comboBox->currentIndex() == 2) {// Movie
+    if (ui->comboBox->currentIndex() == 2) {// Film
         auto lengthIter = attributes.details.find("Length");
         auto directorIter = attributes.details.find("Director");
         auto studioIter = attributes.details.find("Studio");
@@ -169,6 +170,11 @@ void EditMedia::onApplyEditButtonClicked(ConcreteVisitor* visitor) {
         ui->length->setTime(time);
         ui->director->setText((directorIter != attributes.details.end()) ? QString::fromStdString(directorIter->second) : "Unknown");
         ui->studio->setText((studioIter != attributes.details.end()) ? QString::fromStdString(studioIter->second) : "Unknown");
+    }
+
+    QPushButton* cancelButton = ui->confirmationBtns->button(QDialogButtonBox::Cancel);
+    if (cancelButton) {
+        cancelButton->hide();
     }
 }
 

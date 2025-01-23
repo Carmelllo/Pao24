@@ -19,7 +19,10 @@ void ListWidgetElement::onMediaAdded(const QPixmap& img, const std::string & nam
     ui->image->setPixmap(img);
     ui->image->setScaledContents(true);
     ui->nameLabel->setText(QString::fromStdString(name));
-    ui->descriptionLabel->setText("Description\n " +QString::fromStdString(desc));
+
+    ui->descriptionLabel->setText("Description:\n" + (QString::fromStdString(desc)));
+    ui->descriptionLabel->setWordWrap(true);
+
 }
 
 QString ListWidgetElement::getName() const{
@@ -30,4 +33,3 @@ void ListWidgetElement::onInspect(){
         std::string name = ui->nameLabel->text().toStdString();
         emit inspectClicked(name);
 }
-

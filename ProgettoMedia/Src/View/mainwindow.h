@@ -38,6 +38,7 @@ public slots:
     void showMediaWidget(const std::string&);
     void saveMedia();
     void openMedia();
+    void onShowHelpClicked();
 
 private:
     QSplitter *HSplitter;

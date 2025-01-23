@@ -6,7 +6,7 @@ MediaManager::MediaManager() {}
 bool MediaManager::addMedia(Container* container, AbstractMedia* media) {
     for (auto it = container->begin(); it != container->end(); ++it) {
         if (media->getName() == (*it)->getName()) {
-            return false;  // Name already taken
+            return false;
         }
     }
     container->add(media);
@@ -35,13 +35,13 @@ bool MediaManager::deleteMedia(Container* container, const std::string& name) {
     return false;
 }
 
-const AbstractMedia* MediaManager::findMediaByName(const std::string& name, Container* container) {
+const AbstractMedia* MediaManager::findMediaByName(const std::string& name, Container* container) const{
     for (auto it = container->begin(); it != container->end(); ++it) {
         if (name == (*it)->getName()) {
-            return *it; // Return the found media
+            return *it;
         }
     }
-    return nullptr; // Return nullptr if no match is found
+    return nullptr;
 }
 
 

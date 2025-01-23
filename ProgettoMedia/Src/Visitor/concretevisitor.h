@@ -11,6 +11,7 @@ public:
         std::string name;
         std::string year;
         std::string author;
+        std::string description;
         std::string img;
         std::unordered_map<std::string, std::string> details;
     };
