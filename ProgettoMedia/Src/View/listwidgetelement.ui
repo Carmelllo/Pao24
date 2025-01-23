@@ -127,12 +127,15 @@
       <string/>
      </property>
      <property name="icon">
-      <iconset theme="QIcon::ThemeIcon::AddressBookNew"/>
+      <iconset resource="../../Resources.qrc">
+       <normaloff>:/Images/Src/Assets/search-icon.png</normaloff>:/Images/Src/Assets/search-icon.png</iconset>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
