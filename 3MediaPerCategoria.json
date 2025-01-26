@@ -1,0 +1,92 @@
+[
+    {
+        "Author": "George Orwell",
+        "Description": "Dystopian society under constant surveillance and control.",
+        "Genre": "Dystopian fiction, political fiction",
+        "Image": "temp/image_{9c226fc6-71d3-4186-816b-40cfb575b287}.png",
+        "Name": "1984",
+        "Pages": 328,
+        "Publisher": "Secker & Warburg",
+        "Year": 1939
+    },
+    {
+        "Author": "Karl Marx",
+        "Description": "Analysis of capitalism's structure and dynamics.",
+        "Genre": "Economics, philosophy",
+        "Image": "temp/image_{dfcfae56-8750-4463-8877-407f509a120a}.png",
+        "Name": "Capital Volume I",
+        "Pages": 869,
+        "Publisher": "Verlag von Otto Meissner",
+        "Year": 1867
+    },
+    {
+        "Author": "Yuval Noah Harari",
+        "Description": "Explores humanity's history, evolution, and societal development",
+        "Genre": "Non-fiction, history, anthropology",
+        "Image": "temp/image_{fbb98446-46f5-4d1b-8bba-c0296f87f599}.png",
+        "Name": "Sapiens",
+        "Pages": 443,
+        "Publisher": "Harvill Secker ",
+        "Year": 2011
+    },
+    {
+        "Author": "Mark Granovetter",
+        "Description": "Weak social connections are crucial for opportunity.",
+        "Image": "temp/image_{cb5d8bdf-66a4-4d72-a67a-0b0cf36c6693}.png",
+        "Issue": 6,
+        "Journal": "American Journal of Sociology",
+        "Name": "The Strength of Weak Ties",
+        "Volume": 78,
+        "Year": 1973
+    },
+    {
+        "Author": "Alan Turing",
+        "Description": "Groundbreaking exploration of artificial intelligence's potential.",
+        "Image": "temp/image_{ecc4de5a-c7ae-46dd-b93d-2ef942822a8e}.png",
+        "Issue": 236,
+        "Journal": "Mind",
+        "Name": "Can Machines Think?",
+        "Volume": 59,
+        "Year": 1950
+    },
+    {
+        "Author": "John von Neumann and Oskar Morgenstern",
+        "Description": "Foundation of game theory in economic behavior.",
+        "Image": "temp/image_{b998c4e0-08d9-448d-867c-565afe249e7f}.png",
+        "Issue": 1,
+        "Journal": "Econometrica",
+        "Name": "Theory of Games",
+        "Volume": 1,
+        "Year": 1944
+    },
+    {
+        "Author": "Quentin Tarantino",
+        "Description": "Nonlinear storytelling revolutionizing dialogue-driven modern cinema.",
+        "Director": "Quentin Tarantino",
+        "Image": "temp/image_{a69f736a-be3f-4cb4-a8a4-2737c7e21f92}.png",
+        "Length": 154,
+        "Name": "Pulp Fiction",
+        "Studio": "Miramax Films",
+        "Year": 1994
+    },
+    {
+        "Author": "Stanley Kubrick",
+        "Description": "Humanity's evolution and artificial intelligence's existential impact.",
+        "Director": "Stanley Kubrick",
+        "Image": "temp/image_{7cecbe94-a124-4abc-8304-b33341a9c6c3}.png",
+        "Length": 149,
+        "Name": "2001: A Space Odyssey",
+        "Studio": "Metro-Goldwyn-Mayer",
+        "Year": 1968
+    },
+    {
+        "Author": "Sergei Eisenstein",
+        "Description": "Revolutionary propaganda with groundbreaking cinematic editing techniques.",
+        "Director": "Sergei Eisenstein",
+        "Image": "temp/image_{e86554a3-ae29-42aa-aa8e-70d3860a33bf}.png",
+        "Length": 75,
+        "Name": "Battleship Potemkin",
+        "Studio": "Mosfilm",
+        "Year": 1925
+    }
+]

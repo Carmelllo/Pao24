@@ -14,17 +14,6 @@ void Container::remove(const AbstractMedia* m) {
         }
     }
 }
-//UPDATE
-/*void Container::modify(AbstractMedia * m,std::string & n, unsigned int & y,std::string & a) {
-    for(auto it = media.begin(); it!=media.end(); ++it){
-        if(m->getName() == (*it)->getName())
-        {
-            (*it)->setName(n);
-            (*it)->setYear(y);
-            (*it)->setName(a);
-        }
-    }
-}*/
 //CREATE
 void Container::add(const AbstractMedia* m){
     media.push_back(m);
@@ -43,7 +32,7 @@ const AbstractMedia* Container::getMedia(std::string & n) const{
 }
 Container::~Container(){
 for (auto mediaItem : media) {
-    delete mediaItem; // Delete each object pointed to by the pointer
+    delete mediaItem; 
 }
 }
 
